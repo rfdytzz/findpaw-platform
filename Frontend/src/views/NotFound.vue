@@ -1,6 +1,11 @@
 <script setup>
 import Nav from '@/components/Nav.vue';
 import Footer from '@/components/Footer.vue';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    document.title = 'Not Found'
+})
 </script>
 
 <template>
@@ -34,9 +39,9 @@ import Footer from '@/components/Footer.vue';
             </div>
 
             <p class="mt-6 text-sm text-gray-700">
-                Popular searches: <a href="#" class="text-teal-600 hover:underline">Trending</a>,
-                <a href="#" class="text-teal-600 hover:underline">New</a>,
-                <a href="#" class="text-teal-600 hover:underline">Best sellers</a>
+                Popular pages: <a href="#" class="text-teal-600 hover:underline">Home</a>,
+                <a href="#" class="text-teal-600 hover:underline">About</a>,
+                <a href="#" class="text-teal-600 hover:underline">Profile</a>
             </p>
         </div>
     </div>
