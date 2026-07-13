@@ -33,7 +33,7 @@ onMounted(() => {
                     <label for="name" class="font-medium text-sm">Full Name <span class="text-teal-600">*</span></label>
                     <div
                         class="flex flex-row focus-within:bg-white w-90 ring rounded bg-gray-50 ring-gray-200 focus-within:ring-teal-500">
-                        <input type="text" placeholder="Name" class="w-full p-2 focus:outline-0" name=""
+                        <input type="text" placeholder="Name" class="w-full rounded p-2 focus:outline-0" name=""
                             id="name">
                     </div>
                 </div>
@@ -41,7 +41,7 @@ onMounted(() => {
                     <label for="email" class="font-medium text-sm">Email <span class="text-teal-600">*</span></label>
                     <div
                         class="flex flex-row focus-within:bg-white w-90 ring rounded bg-gray-50 ring-gray-200 focus-within:ring-teal-500">
-                        <input type="email" placeholder="email@example.com" class="w-full p-2 focus:outline-0" name=""
+                        <input type="email" placeholder="email@example.com" class="w-full p-2 rounded focus:outline-0" name=""
                             id="email">
                     </div>
                 </div>
@@ -49,7 +49,7 @@ onMounted(() => {
                     <label for="phone_number" class="font-medium text-sm">Phone Number <span class="text-teal-600">*</span></label>
                     <div
                         class="flex flex-row focus-within:bg-white w-90 ring rounded bg-gray-50 ring-gray-200 focus-within:ring-teal-500">
-                        <input type="tel" placeholder="Phone Number" class="w-full p-2 focus:outline-0" name=""
+                        <input type="tel" placeholder="Phone Number" class="w-full p-2 rounded focus:outline-0" name=""
                             id="phone_number">
                     </div>
                 </div>
@@ -59,7 +59,7 @@ onMounted(() => {
                     <div
                         class="flex items-center flex-row focus-within:bg-white w-90 ring rounded bg-gray-50 ring-gray-200 focus-within:ring-teal-500">
                         <input :type="isShow ? 'text' : 'password'" type="password" placeholder="••••••••"
-                            class="w-full py-2 pl-2 focus:outline-0" name="" id="password">
+                            class="w-full py-2 pl-2 focus:outline-0 rounded" name="" id="password">
                         <i @click="toggleShow" :class="isShow ? 'bx-show' : 'bx-hide'" class="bx bx-hide p-2"></i>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ onMounted(() => {
                     <div
                         class="flex items-center flex-row focus-within:bg-white w-90 ring rounded bg-gray-50 ring-gray-200 focus-within:ring-teal-500">
                         <input :type="isShowConfirm ? 'text' : 'password'" type="password" placeholder="••••••••"
-                            class="w-full py-2 pl-2 focus:outline-0" name="" id="confirm_password">
+                            class="w-full py-2 pl-2 focus:outline-0 rounded" name="" id="confirm_password">
                         <i @click="toggleShowConfirm" :class="isShowConfirm ? 'bx-show' : 'bx-hide'" class="bx bx-hide p-2"></i>
                     </div>
                 </div>

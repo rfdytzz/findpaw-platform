@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 
+const token = ref('')
+
 const isDrop = ref(false)
 const toggleDrop = () => {
     isDrop.value = !isDrop.value
@@ -13,7 +15,7 @@ const toggleDrop = () => {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex-1 md:flex md:items-center md:gap-12">
-                    <a class="block text-teal-600" href="#">
+                    <a class="block text-teal-600" href="/">
                         <span class="sr-only">Home</span>
                         <div class="font-bold text-xl">FindPaw</div>
                     </a>
@@ -98,27 +100,33 @@ const toggleDrop = () => {
                         </div>
                     </div>
 
-                    <div v-else class="flex items-center gap-2">
-                        <router-link to="/login" class="inline-block rounded border border-teal-600 bg-teal-600 px-2 py-1 font-medium text-white shadow-sm transition-colors hover:bg-teal-700"
-                            href="#">
-                            Login
-                        </router-link>
-                        <button class="inline-block rounded border border-teal-600 bg-white-600 px-2 py-1 font-medium text-teal-600 shadow-sm transition-colors hover:bg-gray-100"
-                            href="#">
-                            Register
-                        </button>
+                    <div class="flex gap-2 items-center">
+
+                        <div v-if="!token" class="flex items-center gap-2">
+                            <router-link to="/login"
+                                class="inline-block rounded border border-teal-600 bg-teal-600 px-2 py-1 font-medium text-white shadow-sm transition-colors hover:bg-teal-700"
+                                href="#">
+                                Login
+                            </router-link>
+                            <router-link to="/register"
+                                class="inline-block rounded border border-teal-600 bg-white-600 px-2 py-1 font-medium text-teal-600 shadow-sm transition-colors hover:bg-gray-100"
+                                href="#">
+                                Register
+                            </router-link>
+                        </div>
+
+                        <div class="block md:hidden">
+                            <button class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                                <span class="sr-only">Toggle menu</span>
+
+                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="block md:hidden">
-                        <button class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
-                            <span class="sr-only">Toggle menu</span>
-
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
