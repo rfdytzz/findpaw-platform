@@ -9,7 +9,7 @@ const toggleDrop = () => {
 </script>
 
 <template>
-    <header class="bg-white fixed top-0 left-0 w-full">
+    <header class="bg-white fixed z-50 top-0 left-0 w-full">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="flex-1 md:flex md:items-center md:gap-12">
@@ -23,8 +23,10 @@ const toggleDrop = () => {
                     <nav aria-label="Global" class="hidden md:block">
                         <ul class="flex items-center gap-6 text-sm">
                             <li>
-                                <div class="px-2 flex items-center gap-2 transition-all ring-gray-200 focus-within:ring-gray-600 ease-in-out duration-200 w-50 focus-within:w-80 justify-between py-2 rounded-md ring">
-                                    <input type="text" placeholder="Search..." class="focus:outline-0 flex-1" name="" id="">
+                                <div
+                                    class="px-2 flex items-center gap-2 transition-all ring-gray-200 focus-within:ring-gray-600 ease-in-out duration-200 w-50 focus-within:w-80 justify-between py-2 rounded-md ring">
+                                    <input type="text" placeholder="Search..." class="focus:outline-0 flex-1" name=""
+                                        id="">
                                     <i class="bx bx-search"></i>
                                 </div>
                             </li>
@@ -46,15 +48,17 @@ const toggleDrop = () => {
                         </ul>
                     </nav>
 
-                    <div class="hidden md:relative md:block">
-                        <button @click="toggleDrop" type="button" class="overflow-hidden cursor-pointer rounded-full border border-gray-300 shadow-inner">
+                    <div v-if="token" class="hidden md:relative md:block">
+                        <button @click="toggleDrop" type="button"
+                            class="overflow-hidden cursor-pointer rounded-full border border-gray-300 shadow-inner">
                             <span class="sr-only">Toggle dashboard menu</span>
 
                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=1160"
                                 alt="" class="size-10 object-cover" />
                         </button>
 
-                        <div :class="isDrop ? 'block' : 'hidden'" class="absolute inset-e-0 z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
+                        <div :class="isDrop ? 'translate-y-0 visible' : '-translate-y-2 invisible'"
+                            class="absolute transition duration-200 w-56 inset-e-0 z-15 mt-0.5 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
                             role="menu">
                             <div class="p-2">
                                 <a href="#"
@@ -94,6 +98,17 @@ const toggleDrop = () => {
                         </div>
                     </div>
 
+                    <div v-else class="flex items-center gap-2">
+                        <router-link to="/login" class="inline-block rounded border border-teal-600 bg-teal-600 px-2 py-1 font-medium text-white shadow-sm transition-colors hover:bg-teal-700"
+                            href="#">
+                            Login
+                        </router-link>
+                        <button class="inline-block rounded border border-teal-600 bg-white-600 px-2 py-1 font-medium text-teal-600 shadow-sm transition-colors hover:bg-gray-100"
+                            href="#">
+                            Register
+                        </button>
+                    </div>
+
                     <div class="block md:hidden">
                         <button class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
                             <span class="sr-only">Toggle menu</span>
@@ -108,4 +123,7 @@ const toggleDrop = () => {
             </div>
         </div>
     </header>
+
+    <div @click="toggleDrop" :class="isDrop ? 'visible opacity-100' : 'invisible opacity-0'"
+        class="inset-0 fixed transition-all duration-200 bg-black/40 z-10"></div>
 </template>
