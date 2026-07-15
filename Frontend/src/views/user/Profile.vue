@@ -1,7 +1,7 @@
 <script setup>
 import Nav from '@/components/Nav.vue';
-import Footer from '@/components/Footer.vue';
-import ProfilSidebar from '@/components/ProfilSidebar.vue';
+import ProfileSidebar from '@/components/ProfileSidebar.vue';
+import Breadcrumbs from '@/components/Breadcrumbs.vue';
 import { onMounted, ref } from 'vue';
 
 const isDisable = ref(true)
@@ -27,30 +27,14 @@ onMounted(() => {
 <template>
     <Nav />
     <div class="grid grid-cols-5 px-10 py-20 gap-10">
-        <ProfilSidebar />
+        <ProfileSidebar />
         <div class="block col-span-4">
             <div class="flex flex-col">
                 <div class="flex justify-between">
-                    <nav aria-label="Breadcrumb">
-                        <ol class="flex items-center gap-1 text-sm text-gray-700">
-                            <li>
-                                <a href="#" class="block transition-colors hover:text-gray-900"> Home </a>
-                            </li>
-
-                            <li class="rtl:rotate-180">
-                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="size-4"
-                                    viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </li>
-
-                            <li>
-                                <a href="#" class="block transition-colors hover:text-gray-900"> Profile </a>
-                            </li>
-                        </ol>
-                    </nav>
+                    <Breadcrumbs />
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="font-medium mt-5">Public Profile</div>
                     <div class="flex items-center gap-2">
                         <div class="text-sm font-medium">Editor mode: <span v-if="isDisable">Off</span><span
                                 v-else>On</span></div>
@@ -60,19 +44,16 @@ onMounted(() => {
                         </div>
                     </div>
                 </div>
-                <div class="font-medium mt-5">Public Profile</div>
                 <form action="" class="mt-5">
                     <div class="grid grid-cols-3 gap-5">
-                        <div class="col-span-2 flex gap-5 flex-col">
-                            <div class="flex flex-col gap-2">
-                                <label for="name">
-                                    <span class="text-sm font-medium text-gray-700"> Name <span
-                                            class="text-teal-600">*</span> </span>
+                        <div class="col-span-2 text-sm flex gap-5 flex-col">
+                            <label for="name" class="flex flex-col gap-2">
+                                <span class="text-sm font-medium text-gray-700"> Name <span
+                                        class="text-teal-600">*</span> </span>
 
-                                    <input v-model="name" type="text" id="name" :disabled="isDisable"
-                                        class="mt-0.5 w-full rounded focus:ring-teal-600 ring focus:outline-0 ring-gray-100 p-2 shadow-sm sm:text-sm" />
-                                </label>
-                            </div>
+                                <input v-model="name" type="text" id="name" :disabled="isDisable"
+                                    class="mt-0.5 w-full rounded focus:ring-teal-600 ring focus:outline-0 ring-gray-100 p-2 shadow-sm sm:text-sm" />
+                            </label>
                             <div class="flex items-center gap-5">
                                 <label for="email" class="flex-1">
                                     <span class="text-sm font-medium text-gray-700"> Email <span
@@ -116,7 +97,7 @@ onMounted(() => {
                                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=1160"
                                     alt="" class="size-40 rounded-full object-cover" />
                             </div>
-                            <div class="justify-end flex flex-col flex-1 absolute right-15 top-0">
+                            <div v-if="!isDisable" class="justify-end flex flex-col flex-1 absolute right-15 top-0">
                                 <div @click="toggleEditAvatar"
                                     class="flex items-center cursor-pointer gap-2 px-2 py-1 hover:bg-gray-200 bg-gray-100 rounded-md ring ring-gray-200">
                                     <i class="bx bx-edit-alt"></i>Edit
@@ -141,15 +122,17 @@ onMounted(() => {
                             </div>
                         </div>
                     </div>
-                    <div v-if="!isDisable" class="flex mt-7 items-center gap-2">
+                    <div v-if="!isDisable" class="flex mt-7 text-sm items-center gap-2">
                         <button
                             class="inline-block rounded border border-teal-600 bg-teal-600 px-2 py-1 font-medium text-white shadow-sm transition-colors hover:bg-teal-700"
                             href="#">
+                            <i class='bx bx-check'></i>
                             Save Changes
                         </button>
                         <button @click="toggleEditor"
                             class="inline-block rounded border border-teal-600 bg-white-600 px-2 py-1 font-medium text-teal-600 shadow-sm transition-colors hover:bg-gray-100"
                             href="#">
+                            <i class='bx bx-x'></i>
                             Cancel
                         </button>
                     </div>
