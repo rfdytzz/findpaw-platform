@@ -209,6 +209,9 @@ onMounted(() => {
                 </div>
             </router-link>
         </div>
+        <div class="flex justify-center mt-8">
+            <router-link to="/search" class="p-2 bg-teal-600 rounded text-white hover:bg-teal-700 text-sm">Click for more</router-link>
+        </div>
     </div>
 
     <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
