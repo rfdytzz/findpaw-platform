@@ -12,8 +12,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex bg-slate-50 justify-center items-center h-fit py-5">
-        <div class="bg-white border border-slate-200 px-5 py-10 rounded-xl gap-5 flex flex-col md:w-[35%] w-full">
+    <div class="flex bg-slate-50 justify-center items-center h-fit md:py-5">
+        <div class="bg-white md:border border-slate-200 px-5 py-10 rounded-xl gap-5 flex flex-col md:w-[35%] w-full">
             <div class="flex flex-col items-center gap-2">
                 <div class="font-semibold text-slate-900 font-inter text-2xl">Welcome Back</div>
                 <div class="text-md text-gray-600">Please enter your details to Sign in</div>
@@ -79,8 +79,13 @@ onMounted(() => {
                     <router-link to="" class="text-sm">Forgot Password?</router-link>
                 </div>
                 <button
-                    class="w-full bg-black text-white font-medium py-2 rounded-md cursor-pointer text-sm hover:bg-slate-800 transition duration-200">Sign
-                    in to FindPaw</button>
+                    class="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-medium py-2 rounded-md cursor-pointer text-sm hover:bg-slate-800 transition duration-200">
+                    <div class="flex items-center justify-center">
+                        <div class="w-4 h-4 border-2 border-slate-100 rounded-full animate-spin border-t-slate-900">
+                        </div>
+                    </div>
+                    Sign in to FindPaw
+                </button>
                 <div class="text-center w-full text-slate-600">New on our platform? <router-link to="/signup    "
                         class="text-black">Create an account</router-link></div>
             </form>

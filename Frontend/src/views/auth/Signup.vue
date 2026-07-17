@@ -37,8 +37,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex bg-slate-50 justify-center items-center h-fit py-5">
-        <div class="bg-white border border-slate-200 px-5 py-10 rounded-xl gap-5 flex flex-col md:w-[35%] w-full">
+    <div class="flex bg-slate-50 justify-center items-center h-fit md:py-5">
+        <div class="bg-white md:border border-slate-200 px-5 py-10 rounded-xl gap-5 flex flex-col md:w-[35%] w-full">
             <div class="flex flex-col items-center gap-2">
                 <div class="font-semibold text-slate-900 font-inter text-2xl">Create Account</div>
                 <div class="text-md text-gray-600">Please enter your information to Sign up</div>
@@ -96,7 +96,8 @@ onMounted(() => {
                     <div
                         class="rounded-md text-sm gap-2 flex-1 border border-slate-200 px-3 py-2 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
                         <span class="text-slate-600">+62</span>
-                        <input @input="formatPhone" :value="phone_number" required minlength="8" type="tel" id="phone_number" placeholder="Enter your phone number"
+                        <input @input="formatPhone" :value="phone_number" required minlength="8" type="tel"
+                            id="phone_number" placeholder="Enter your phone number"
                             class="focus:outline-0 text-sm flex-1">
                     </div>
                 </div>
@@ -127,8 +128,13 @@ onMounted(() => {
                     </div>
                 </div>
                 <button
-                    class="w-full bg-black text-white font-medium py-2 rounded-md cursor-pointer text-sm hover:bg-slate-800 transition duration-200">Sign
-                    up to FindPaw</button>
+                    class="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-medium py-2 rounded-md cursor-pointer text-sm hover:bg-slate-800 transition duration-200">
+                    <div class="flex items-center justify-center">
+                        <div class="w-4 h-4 border-2 border-slate-100 rounded-full animate-spin border-t-slate-900">
+                        </div>
+                    </div>
+                    Sign up to FindPaw
+                </button>
                 <div class="text-center w-full text-slate-600">Have an account? <router-link to="/signin"
                         class="text-black">Sign in</router-link></div>
             </form>
