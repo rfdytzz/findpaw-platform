@@ -2,6 +2,7 @@ import Login from '@/views/auth/Login.vue'
 import Register from '@/views/auth/Register.vue'
 import Main from '@/views/Main.vue'
 import NotFound from '@/views/NotFound.vue'
+import Detail from '@/views/product/Detail.vue'
 import Search from '@/views/Search.vue'
 import Account from '@/views/user/Account.vue'
 import Bookmarks from '@/views/user/Bookmarks.vue'
@@ -22,6 +23,8 @@ const router = createRouter({
     { path: '/profile/verified-account', component: VerifiedAccount, meta: {auth:true} },
     { path: '/profile/bookmarks', component: Bookmarks, meta: {auth:true} },
     { path: '/profile/account', component: Account, meta: {auth:true} },
+
+    { path: '/detail', component: Detail },
 
     { path: '/:pathMatch(.*)*', component: NotFound }
   ],

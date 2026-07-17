@@ -11,7 +11,7 @@ onMounted(() => {
 <template>
     <Nav />
 
-    <section>
+    <section class="">
         <div class="grid-cols-2 grid">
             <div class="w-full col-span-2 md:col-span-1 h-screen items-start flex-col justify-center md:p-15 p-10 flex">
                 <div class="py-1 px-2 bg-teal-600/20 text-teal-600 rounded-full text-sm flex items-center gap-2">

@@ -6,120 +6,129 @@ import ProductCards from '@/components/ProductCards.vue';
 
 <template>
     <Nav />
-    <div class="grid grid-cols-5 mt-15 p-5 gap-10">
-        <div class="w-55">
-            <p class="font-medium text-gray-700">Filter</p>
-            <div class="space-y-4 mt-5">
-                <details class="group relative overflow-hidden rounded border border-gray-300 shadow-sm">
-                    <summary
-                        class="flex items-center justify-between gap-2 p-3 text-gray-700 transition-colors hover:text-gray-900 [&::-webkit-details-marker]:hidden">
-                        <span class="text-sm font-medium"> Category </span>
 
-                        <span class="transition-transform group-open:-rotate-180">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="size-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                            </svg>
-                        </span>
-                    </summary>
+    <div class="max-w-7xl mx-auto mt-20 px-5">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
-                    <div class="divide-y divide-gray-300 border-t border-gray-300 bg-white">
-                        <div class="flex items-center justify-between px-3 py-2">
-                            <span class="text-sm text-gray-700"> 0 Selected </span>
+            <aside class="lg:col-span-1">
+                <div class="sticky top-24">
+                    <h2 class="font-semibold text-gray-800">
+                        Filter
+                    </h2>
 
-                            <button type="button"
-                                class="text-sm text-gray-700 underline transition-colors hover:text-gray-900">
-                                Reset
-                            </button>
-                        </div>
+                    <div class="space-y-4 mt-5">
 
-                        <fieldset class="p-3">
-                            <legend class="sr-only">Checkboxes</legend>
+                        <details open
+                            class="group rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                            <summary
+                                class="flex items-center justify-between p-4 cursor-pointer text-sm font-medium text-gray-700">
+                                Category
 
-                            <div class="flex flex-col items-start gap-3">
-                                <label for="Option1" class="inline-flex items-center gap-3">
-                                    <input type="checkbox" class="size-5 rounded border-gray-300 shadow-sm"
-                                        id="Option1" />
+                                <i class="bx bx-chevron-down transition group-open:rotate-180"></i>
+                            </summary>
 
-                                    <span class="text-sm font-medium text-gray-700"> Cat </span>
+                            <div class="border-t border-gray-200 p-4 space-y-3">
+
+                                <label class="flex items-center gap-3 text-sm text-gray-700">
+                                    <input type="checkbox" class="size-4 rounded border-gray-300">
+                                    Cat
                                 </label>
 
-                                <label for="Option2" class="inline-flex items-center gap-3">
-                                    <input type="checkbox" class="size-5 rounded border-gray-300 shadow-sm"
-                                        id="Option2" />
-
-                                    <span class="text-sm font-medium text-gray-700"> Dog </span>
+                                <label class="flex items-center gap-3 text-sm text-gray-700">
+                                    <input type="checkbox" class="size-4 rounded border-gray-300">
+                                    Dog
                                 </label>
 
-                                <label for="Option3" class="inline-flex items-center gap-3">
-                                    <input type="checkbox" class="size-5 rounded border-gray-300 shadow-sm"
-                                        id="Option3" />
-
-                                    <span class="text-sm font-medium text-gray-700"> Hamsters </span>
+                                <label class="flex items-center gap-3 text-sm text-gray-700">
+                                    <input type="checkbox" class="size-4 rounded border-gray-300">
+                                    Hamster
                                 </label>
+
                             </div>
-                        </fieldset>
+                        </details>
+
+
+                        <details open
+                            class="group rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+
+                            <summary
+                                class="flex items-center justify-between p-4 cursor-pointer text-sm font-medium text-gray-700">
+                                Price
+
+                                <i class="bx bx-chevron-down transition group-open:rotate-180"></i>
+                            </summary>
+
+
+                            <div class="border-t border-gray-200 p-4">
+
+                                <div class="flex gap-3">
+
+                                    <input type="number" value="0"
+                                        class="w-full rounded-xl border-gray-300 text-sm focus:ring-0">
+
+                                    <input type="number" value="600"
+                                        class="w-full rounded-xl border-gray-300 text-sm focus:ring-0">
+
+                                </div>
+
+                            </div>
+
+                        </details>
+
                     </div>
-                </details>
 
-                <details class="group relative overflow-hidden rounded border border-gray-300 shadow-sm">
-                    <summary
-                        class="flex items-center justify-between gap-2 p-3 text-gray-700 transition-colors hover:text-gray-900 [&::-webkit-details-marker]:hidden">
-                        <span class="text-sm font-medium"> Price </span>
-
-                        <span class="transition-transform group-open:-rotate-180">
-                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="size-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                            </svg>
-                        </span>
-                    </summary>
-
-                    <div class="divide-y divide-gray-300 border-t border-gray-300 bg-white">
-                        <div class="flex items-center justify-between px-3 py-2">
-                            <span class="text-sm text-gray-700"> Max price is $600 </span>
-
-                            <button type="button"
-                                class="text-sm text-gray-700 underline transition-colors hover:text-gray-900">
-                                Reset
-                            </button>
-                        </div>
-
-                        <div class="flex items-center gap-3 p-3">
-                            <label for="MinPrice">
-                                <span class="text-sm text-gray-700"> Min </span>
-
-                                <input type="number" id="MinPrice" value="0"
-                                    class="mt-0.5 focus:outline-0 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
-                            </label>
-
-                            <label for="MaxPrice">
-                                <span class="text-sm text-gray-700"> Max </span>
-
-                                <input type="number" id="MaxPrice" value="600"
-                                    class="mt-0.5 focus:outline-0 w-full rounded border-gray-300 shadow-sm sm:text-sm" />
-                            </label>
-                        </div>
-                    </div>
-                </details>
-            </div>
-        </div>
-        <div class="col-span-4 h-screen">
-            <div class="flex items-center justify-between">
-                <div class="font-medium">Result for: Cat</div>
-                <div class="flex items-center gap-2">
-                    <div class="text-sm flex items-center gap-1 bg-teal-600/20 border border-teal-600 px-1.5 py-1 rounded-2xl text-teal-600"><i class="bx bx-x"></i>Cat</div>
-                    <div class="text-sm flex items-center gap-1 bg-teal-600/20 border border-teal-600 px-1.5 py-1 rounded-2xl text-teal-600"><i class="bx bx-x"></i>1-2 y/o</div>
                 </div>
-            </div>
-            <div class="grid grid-cols-5 gap-5 mt-5">
-                <ProductCards />
-                <ProductCards />
-                <ProductCards />
-                <ProductCards />
-                <ProductCards />
-                <ProductCards />
-            </div>
+            </aside>
+
+
+            <main class="lg:col-span-4">
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+
+                    <h2 class="font-semibold text-gray-800">
+                        Result for: Cat
+                    </h2>
+
+
+                    <div class="flex gap-2 flex-wrap">
+
+                        <span
+                            class="flex items-center gap-1 text-sm px-3 py-1.5 rounded-full bg-teal-50 text-teal-600 border border-teal-200">
+                            Cat
+                            <i class="bx bx-x"></i>
+                        </span>
+
+
+                        <span
+                            class="flex items-center gap-1 text-sm px-3 py-1.5 rounded-full bg-teal-50 text-teal-600 border border-teal-200">
+                            1-2 y/o
+                            <i class="bx bx-x"></i>
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-5 mt-6">
+
+                    <ProductCards />
+                    <ProductCards />
+                    <ProductCards />
+                    <ProductCards />
+                    <ProductCards />
+                    <ProductCards />
+                    <ProductCards />
+                    <ProductCards />
+
+                </div>
+
+            </main>
+
         </div>
     </div>
+
+
+    <Footer />
+
 </template>

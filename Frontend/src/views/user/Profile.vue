@@ -26,7 +26,7 @@ onMounted(() => {
 
 <template>
     <Nav />
-    <div class="grid grid-cols-5 px-10 py-20 gap-10">
+    <div class="grid font-inter grid-cols-5 px-10 py-20 gap-10">
         <ProfileSidebar />
         <div class="block col-span-4">
             <div class="flex flex-col">
