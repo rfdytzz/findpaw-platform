@@ -17,7 +17,7 @@ const router = createRouter({
     { path: '/', component: Main },
     { path: '/search', component: Search },
     { path: '/signin', component: Signin, meta: {guest:true} },
-    { path: '/signuo\p', component: Signup, meta: {guest:true} },
+    { path: '/signup', component: Signup, meta: {guest:true} },
     { path: '/profile', component: Profile, meta: {auth:true} },
     { path: '/profile/change-password', component: ChangePassword, meta: {auth:true} },
     { path: '/profile/verified-account', component: VerifiedAccount, meta: {auth:true} },
