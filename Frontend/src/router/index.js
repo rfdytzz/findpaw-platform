@@ -1,5 +1,5 @@
-import Login from '@/views/auth/Login.vue'
-import Register from '@/views/auth/Register.vue'
+import Signin from '@/views/auth/Signin.vue'
+import Signup from '@/views/auth/Signup.vue'
 import Main from '@/views/Main.vue'
 import NotFound from '@/views/NotFound.vue'
 import Detail from '@/views/product/Detail.vue'
@@ -16,8 +16,8 @@ const router = createRouter({
   routes: [
     { path: '/', component: Main },
     { path: '/search', component: Search },
-    { path: '/login', component: Login, meta: {guest:true} },
-    { path: '/register', component: Register, meta: {guest:true} },
+    { path: '/signin', component: Signin, meta: {guest:true} },
+    { path: '/signuo\p', component: Signup, meta: {guest:true} },
     { path: '/profile', component: Profile, meta: {auth:true} },
     { path: '/profile/change-password', component: ChangePassword, meta: {auth:true} },
     { path: '/profile/verified-account', component: VerifiedAccount, meta: {auth:true} },
