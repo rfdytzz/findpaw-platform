@@ -19,7 +19,7 @@ import ProductCards from '@/components/ProductCards.vue';
                     <div class="space-y-4 mt-5">
 
                         <details open
-                            class="group rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                            class="group rounded-md border border-gray-200 bg-white shadow-sm overflow-hidden">
                             <summary
                                 class="flex items-center justify-between p-4 cursor-pointer text-sm font-medium text-gray-700">
                                 Category
@@ -49,7 +49,7 @@ import ProductCards from '@/components/ProductCards.vue';
 
 
                         <details open
-                            class="group rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                            class="group rounded-md border border-gray-200 bg-white shadow-sm overflow-hidden">
 
                             <summary
                                 class="flex items-center justify-between p-4 cursor-pointer text-sm font-medium text-gray-700">

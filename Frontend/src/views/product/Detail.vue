@@ -18,7 +18,7 @@ onMounted(() => {
     <div class="grid px-10 mt-15 pb-10 pt-10 gap-5 grid-cols-3">
         <div class="flex flex-col gap-5">
 
-            <div class="overflow-hidden rounded-2xl bg-gray-100">
+            <div class="overflow-hidden rounded-md bg-gray-100">
                 <img v-if="isPhoto" class="w-full aspect-square object-cover"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6kJNbOdTh7CJim_pJdlLOBn-tZ7UGSJS-H9CTzautg&s=10"
                     alt="">
