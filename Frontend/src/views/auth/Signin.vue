@@ -7,7 +7,7 @@ const toggleShow = () => {
 }
 
 onMounted(() => {
-    document.title = 'FindPaw - Login'
+    document.title = 'FindPaw - Sign in'
 })
 </script>
 

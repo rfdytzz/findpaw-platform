@@ -11,88 +11,126 @@ const toggleShowConfirm = () => {
     isShowConfirm.value = !isShowConfirm.value
 }
 
+const phone_number = ref('');
+
+const formatPhone = (event) => {
+    let value = event.target.value.replace(/\D/g, '');
+
+    let formattedValue = '';
+
+    if (value.length > 0) {
+        formattedValue += value.substring(0, 3);
+    }
+    if (value.length > 3) {
+        formattedValue += '-' + value.substring(3, 7);
+    }
+    if (value.length > 7) {
+        formattedValue += '-' + value.substring(7, 12);
+    }
+
+    phone_number.value = formattedValue;
+};
+
 onMounted(() => {
-    document.title = 'FindPaw - Register'
+    document.title = 'FindPaw - Sign up'
 })
 </script>
 
 <template>
-    <div class="w-full h-fit p-10 flex justify-center items-center">
-        <div class="rounded-xl border-2 gap-5 items-center border-gray-100 bg-white p-5 flex flex-col">
-            <h1 class="text-3xl font-semibold">Register</h1>
-            <div class="w-full text-sm flex items-center bg-red-500/20 text-red-500 p-2 gap-2 rounded">
-                <i class='bx bx-info-circle' ></i>
-                The email has been taken.
+    <div class="flex bg-slate-50 justify-center items-center h-fit py-5">
+        <div class="bg-white border border-slate-200 px-5 py-10 rounded-xl gap-5 flex flex-col md:w-[35%] w-full">
+            <div class="flex flex-col items-center gap-2">
+                <div class="font-semibold text-slate-900 font-inter text-2xl">Create Account</div>
+                <div class="text-md text-gray-600">Please enter your information to Sign up</div>
             </div>
-            <div class="w-full text-sm flex items-center bg-teal-500/20 text-teal-500 p-2 gap-2 rounded">
-                <i class='bx bx-check-circle' ></i>
-                Register Success, please Login
+            <div class="flex gap-3 mt-2 w-full items-center justfiy-center">
+                <div
+                    class="flex-1 flex items-center py-2 hover:bg-slate-50 cursor-pointer justify-center border rounded-md border-slate-200">
+                    <i class="bx bxl-google text-xl"></i>
+                </div>
+                <div
+                    class="flex-1 flex items-center py-2 hover:bg-slate-50 cursor-pointer justify-center border rounded-md border-slate-200">
+                    <i class="bx bxl-facebook text-xl"></i>
+                </div>
+                <div
+                    class="flex-1 flex items-center py-2 hover:bg-slate-50 cursor-pointer justify-center border rounded-md border-slate-200">
+                    <i class="bx bxl-microsoft text-xl"></i>
+                </div>
             </div>
-            <form action="" class="flex flex-col gap-4">
-                <div class="flex flex-col gap-2">
-                    <label for="name" class="font-medium text-sm">Full Name <span class="text-teal-600">*</span></label>
+            <div class="flex items-center gap-2 justify-center">
+                <span class="text-sm text-slate-600">OR</span>
+            </div>
+            <div class="w-full px-1">
+                <div
+                    class="flex items-center justify-between p-2 rounded-md text-sm bg-green-50 border border-green-200 text-green-700">
+                    <div class="flex gap-2 items-center">
+                        <i class="bx bx-check-circle text-green-600"></i>
+                        <span>Sign up Successfully</span>
+                    </div>
+                    <i class="bx bx-x cursor-pointer"></i>
+                </div>
+            </div>
+            <div class="w-full px-1">
+                <div
+                    class="flex items-center justify-between p-2 rounded-md text-sm bg-red-50 border border-red-200 text-red-700">
+                    <div class="flex gap-2 items-center">
+                        <i class="bx bx-info-circle text-red-600"></i>
+                        <span>Incorrect Email or Password, Please try again</span>
+                    </div>
+                    <i class="bx bx-x cursor-pointer"></i>
+                </div>
+            </div>
+            <form class="flex flex-col items-start justify-center px-1 gap-4">
+                <div class="flex flex-col w-full gap-2">
+                    <label for="name" class="font-medium text-sm">Name <span>*</span></label>
+                    <input required type="text" id="name" placeholder="Enter your name"
+                        class="rounded-md text-sm flex-1 focus:outline-0 border border-slate-200 px-3 py-2 focus:border-slate-400 focus:ring-slate-200 focus:ring-3 transition duration-200 ease-in-out">
+                </div>
+                <div class="flex flex-col w-full gap-2">
+                    <label for="email" class="font-medium text-sm">Email address <span>*</span></label>
+                    <input required type="email" id="email" placeholder="Enter your email address"
+                        class="rounded-md text-sm flex-1 focus:outline-0 border border-slate-200 px-3 py-2 focus:border-slate-400 focus:ring-slate-200 focus:ring-3 transition duration-200 ease-in-out">
+                </div>
+                <div class="flex flex-col w-full gap-2">
+                    <label for="phone_number" class="font-medium text-sm">Phone Number <span>*</span></label>
                     <div
-                        class="flex flex-row focus-within:bg-white w-90 ring rounded bg-gray-50 ring-gray-200 focus-within:ring-teal-500">
-                        <input type="text" placeholder="Name" class="w-full rounded p-2 focus:outline-0" name=""
-                            id="name">
+                        class="rounded-md text-sm gap-2 flex-1 border border-slate-200 px-3 py-2 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
+                        <span class="text-slate-600">+62</span>
+                        <input @input="formatPhone" :value="phone_number" required minlength="8" type="tel" id="phone_number" placeholder="Enter your phone number"
+                            class="focus:outline-0 text-sm flex-1">
                     </div>
                 </div>
-                <div class="flex flex-col gap-2">
-                    <label for="email" class="font-medium text-sm">Email <span class="text-teal-600">*</span></label>
+                <div class="flex flex-col w-full gap-2">
+                    <label for="password" class="font-medium text-sm">Password <span>*</span></label>
                     <div
-                        class="flex flex-row focus-within:bg-white w-90 ring rounded bg-gray-50 ring-gray-200 focus-within:ring-teal-500">
-                        <input type="email" placeholder="email@example.com" class="w-full p-2 rounded focus:outline-0" name=""
-                            id="email">
+                        class="rounded-md text-sm flex-1 border border-slate-200 px-3 py-2 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
+                        <input required minlength="8" :type="isShow ? 'text' : 'password'" id="password"
+                            placeholder="••••••••••••" class="focus:outline-0 text-sm flex-1">
+                        <i :class="isShow ? 'bx-show' : 'bx-hide'" @click="toggleShow"
+                            class="bx text-md cursor-pointer"></i>
                     </div>
                 </div>
-                <div class="flex flex-col gap-2">
-                    <label for="phone_number" class="font-medium text-sm">Phone Number <span class="text-teal-600">*</span></label>
+                <div class="flex flex-col w-full gap-2">
+                    <label for="confirm_password" class="font-medium text-sm">Confirm Password <span>*</span></label>
                     <div
-                        class="flex flex-row focus-within:bg-white w-90 ring rounded bg-gray-50 ring-gray-200 focus-within:ring-teal-500">
-                        <input type="tel" placeholder="Phone Number" class="w-full p-2 rounded focus:outline-0" name=""
-                            id="phone_number">
+                        class="rounded-md text-sm flex-1 border border-slate-200 px-3 py-2 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
+                        <input required minlength="8" :type="isShowConfirm ? 'text' : 'password'" id="password"
+                            placeholder="••••••••••••" class="focus:outline-0 text-sm flex-1">
+                        <i :class="isShowConfirm ? 'bx-show' : 'bx-hide'" @click="toggleShowConfirm"
+                            class="bx text-md cursor-pointer"></i>
                     </div>
                 </div>
-                <div class="flex flex-col gap-2">
-                    <label for="password" class="font-medium text-sm">Password <span
-                            class="text-teal-600">*</span></label>
-                    <div
-                        class="flex items-center flex-row focus-within:bg-white w-90 ring rounded bg-gray-50 ring-gray-200 focus-within:ring-teal-500">
-                        <input :type="isShow ? 'text' : 'password'" type="password" placeholder="••••••••"
-                            class="w-full py-2 pl-2 focus:outline-0 rounded" name="" id="password">
-                        <i @click="toggleShow" :class="isShow ? 'bx-show' : 'bx-hide'" class="bx bx-hide p-2"></i>
+                <div class="flex items-center justify-between w-full">
+                    <div class="flex items-center gap-2 px-1">
+                        <input type="checkbox" id="remember" class="accent-slate-900">
+                        <label for="remember" class="text-sm text-slate-600">Remember Me</label>
                     </div>
                 </div>
-                <div class="flex flex-col gap-2">
-                    <label for="confirm_password" class="font-medium text-sm">Confirm Password <span
-                            class="text-teal-600">*</span></label>
-                    <div
-                        class="flex items-center flex-row focus-within:bg-white w-90 ring rounded bg-gray-50 ring-gray-200 focus-within:ring-teal-500">
-                        <input :type="isShowConfirm ? 'text' : 'password'" type="password" placeholder="••••••••"
-                            class="w-full py-2 pl-2 focus:outline-0 rounded" name="" id="confirm_password">
-                        <i @click="toggleShowConfirm" :class="isShowConfirm ? 'bx-show' : 'bx-hide'" class="bx bx-hide p-2"></i>
-                    </div>
-                </div>
-                <div class="flex items-center text-sm gap-2 text-gray-500 justify-start">
-                    <input type="checkbox" name="" id="">
-                    Remember me
-                </div>
-                <button class="cursor-pointer font-medium flex justify-center items-center gap-2 bg-teal-500 rounded p-2 text-white hover:bg-teal-700">
-                    <div role="status" aria-label="Loading">
-                        <svg class="mx-auto size-5 animate-spin text-teal-200" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
-                            </circle>
-
-                            <path class="opacity-75" fill="currentColor"
-                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                            </path>
-                        </svg>
-                    </div>
-                    Register
-                </button>
-                <div class="text-sm text-center -mt-2">have an account? <router-link to="/login"
-                        class="text-teal-600 hover:underline">Login</router-link></div>
+                <button
+                    class="w-full bg-black text-white font-medium py-2 rounded-md cursor-pointer text-sm hover:bg-slate-800 transition duration-200">Sign
+                    up to FindPaw</button>
+                <div class="text-center w-full text-slate-600">Have an account? <router-link to="/signin"
+                        class="text-black">Sign in</router-link></div>
             </form>
         </div>
     </div>
