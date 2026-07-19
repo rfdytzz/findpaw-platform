@@ -12,7 +12,8 @@ onMounted(() => {
 <template>
     <Nav />
 
-    <div class="relative w-full h-screen bg-white overflow-hidden flex items-center justify-center">
+    <div
+        class="relative w-full h-55 mt-15 md:mt-0 md:min-h-screen bg-white overflow-hidden flex items-center justify-center">
         <div class="absolute inset-0 bg-center bg-cover z-0"
             style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6kJNbOdTh7CJim_pJdlLOBn-tZ7UGSJS-H9CTzautg&s=10');">
         </div>
@@ -22,12 +23,13 @@ onMounted(() => {
         <div class="relative z-10 flex items-center justify-center  min-h-screen w-full font-inter">
             <div class="flex flex-col justify-center items-center p-5">
                 <div class="flex flex-col gap-1 text-white text-center">
-                    <div class="font-inter font-bold text-7xl">Lorem ipsum dolor sit amet consectetur.</div>
-                    <div class="font-inter">vero iure adipisci provident natus sunt sint exercitationem numquam expedita
+                    <div class="font-inter font-bold text-2xl md:text-7xl">Lorem ipsum dolor sit amet consectetur.</div>
+                    <div class="font-inter hidden md:block">vero iure adipisci provident natus sunt sint exercitationem
+                        numquam expedita
                         unde!</div>
                 </div>
                 <div class="flex gap-3 mt-5 items-center">
-                    <Button>
+                    <Button variant="light">
                         Explore
                         <i class="bx bx-navigation"></i>
                     </Button>
@@ -37,7 +39,15 @@ onMounted(() => {
 
     </div>
 
-    <div class="p-10 pb-0">
+    <div class="md:p-10 p-5 pb-0">
+        <div class="md:hidden block">
+            <div class="flex w-full items-center justify-center gap-2 mb-5">
+                <input type="text"
+                    class="w-full focus:outline-0 p-2 border border-gray-200 focus:ring-2 transition duration-200 ring-gray-100 focus:border-gray-300 bg-gray-100 rounded-md"
+                    placeholder="Search" id="">
+                <Button class="text-sm"><i class="bx bx-search"></i>Search</Button>
+            </div>
+        </div>
         <div class="mb-5 text-xl font-semibold">Cats</div>
         <div class="grid md:grid-cols-4 grid-cols-1 gap-5">
             <router-link to=""
@@ -125,7 +135,7 @@ onMounted(() => {
             <Button>Click for more cats</Button>
         </div>
     </div>
-    <div class="p-10 pt-0">
+    <div class="md:p-10 p-5 md:mt-0 mt-10 pt-0">
         <div class="mb-5 text-xl font-semibold">Dogs</div>
         <div class="grid md:grid-cols-4 grid-cols-1 gap-5">
             <router-link to=""
@@ -225,7 +235,7 @@ onMounted(() => {
             </p>
         </div>
 
-        <div class="mt-4 grid grid-cols-2 gap-px md:grid-cols-4">
+        <div class="mt-4 grid grid-cols-1 gap-px md:grid-cols-4">
             <div class="grid place-content-center p-4 grayscale transition-[filter] hover:grayscale-0">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 285 40" class="h-8" aria-hidden="true">
                     <path fill="#ff500b"
@@ -277,6 +287,15 @@ onMounted(() => {
             </div>
         </div>
     </div>
+
+    <marquee behavior="" direction="" class="bg-slate-900 text-white font-inter text-xl font-normal p-1.5"><span
+            class="font-semibold">FindPaw</span> is
+        a project by Rafka for portfolio purposes.</marquee>
+    <marquee behavior="" direction="right" class="bg-white text-slate-900 font-inter text-xl font-semibold p-1.5"><span
+            class="font-normal">&copy; 2026 FindPaw</span></marquee>
+    <marquee behavior="" direction="" class="bg-slate-900 text-white font-inter text-xl font-normal p-1.5"><span
+            class="font-semibold">FindPaw</span> is
+        a project by Rafka for portfolio purposes.</marquee>
 
     <Footer />
 </template>
