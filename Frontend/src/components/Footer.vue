@@ -4,9 +4,7 @@
         <div class="mx-auto max-w-7xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div>
-                    <div class="text-teal-600 text-3xl font-bold">
-                        FindPaw
-                    </div>
+                    <a href="/" class="font-bold text-3xl"><i class='bx bxs-dog'></i> FindPaw</a>
 
                     <p class="mt-4 max-w-xs text-gray-500">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam

@@ -1,126 +1,59 @@
 <script setup>
-import { ref } from 'vue'
-
-const token = ref(null)
+import { ref } from 'vue';
 
 const isDrop = ref(false)
-
 const toggleDrop = () => {
     isDrop.value = !isDrop.value
 }
 </script>
 
 <template>
-<header class="fixed top-0 left-0 z-50 w-full bg-white border-b border-gray-100">
-
-    <div class="max-w-7xl mx-auto px-5">
-        <div class="h-16 flex items-center justify-between">
-
-            <router-link to="/" class="text-xl font-bold text-teal-600">
-                FindPaw
+    <header
+        class="fixed top-0 left-0 w-full h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 flex justify-between items-center px-6 md:px-10 z-50">
+        <a href="/" class="font-bold text-xl"><i class='bx bxs-dog'></i> FindPaw</a>
+        <ul class="text-sm font-inter flex items-center gap-5">
+            <router-link to=""
+                class="bg-gray-100 px-3 ease-in-out p-2 rounded-md ring ring-gray-100 transition-all duration-200">
+                Home
             </router-link>
-
-
-            <nav class="hidden md:flex items-center gap-6">
-
-                <div
-                    class="group flex items-center gap-2 w-52 focus-within:w-72 transition-all duration-300 border border-gray-200 rounded-xl px-3 py-2">
-
-                    <input 
-                        class="flex-1 text-sm outline-none"
-                        placeholder="Search pet..."
-                    >
-
-                    <i class="bx bx-search text-gray-500"></i>
-
+            <router-link to=""
+                class="hover:bg-gray-100 flex hover:px-3 ease-in-out p-2 rounded-md hover:ring hover:ring-gray-100 transition-all duration-200">
+                About
+            </router-link>
+            <div
+                class="flex focus-within:w-80 w-70 items-center transition-all duration-200 ease-in-out p-2 text-sm border border-gray-100 bg-gray-100 rounded-md">
+                <input type="text" class="focus:outline-0 flex-1" name="" id="" placeholder="Search">
+                <i class="bx bx-search"></i>
+            </div>
+            <router-link to=""
+                class="hover:bg-gray-100 hover:px-3 ease-in-out p-2 rounded-md hover:ring hover:ring-gray-100 transition-all duration-200">
+                Blog
+            </router-link>
+            <router-link to=""
+                class="hover:bg-gray-100 hover:px-3 ease-in-out p-2 rounded-md hover:ring hover:ring-gray-100 transition-all duration-200">
+                Community
+            </router-link>
+        </ul>
+        <div class="flex relative">
+            <img @click="toggleDrop" src="https://ui-avatars.com/api/?name=Elon+Musk"
+                class="size-8 rounded-full relative cursor-pointer" alt="">
+            <div :class="isDrop ? 'visible translate-y-0 translate-x-0 opacity-100 scale-100' : 'invisible -translate-y-3 translate-x-0.5 opacity-0 scale-95'"
+                class="absolute bg-white w-40 border border-slate-200 rounded-xl top-10 inset-e-0 p-1 transition-all duration-65 ease-in-out">
+                <div class="flex flex-col font-inter text-sm gap-1">
+                    <router-link to="/profile"
+                        class="py-1 px-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Profile<i
+                            class="bx bx-user"></i></router-link>
+                    <router-link to="/profile/settings"
+                        class="py-1 px-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Settings<i
+                            class="bx bx-cog"></i></router-link>
+                    <router-link to="/profile/bookmarks"
+                        class="py-1 px-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Bookmarks<i
+                            class="bx bx-bookmarks"></i></router-link>
+                    <router-link to=""
+                        class="py-1 px-2 flex items-center justify-between hover:bg-red-50 rounded-md transition duration-200 ease-in-out text-red-800 hover:text-red-700">Sign
+                        out<i class="bx bx-log-out"></i></router-link>
                 </div>
-
-
-                <router-link
-                    class="text-sm text-gray-600 hover:text-teal-600"
-                    to="#">
-                    About
-                </router-link>
-
-                <router-link
-                    class="text-sm text-gray-600 hover:text-teal-600"
-                    to="#">
-                    History
-                </router-link>
-
-                <router-link
-                    class="text-sm text-gray-600 hover:text-teal-600"
-                    to="#">
-                    Blog
-                </router-link>
-
-
-                <div v-if="token" class="relative">
-
-                    <button 
-                        @click="toggleDrop"
-                        class="rounded-full overflow-hidden border border-gray-200">
-
-                        <img
-                            class="w-10 h-10 object-cover"
-                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80"
-                        >
-
-                    </button>
-
-
-                    <div
-                        v-if="isDrop"
-                        class="absolute right-0 top-12 w-44 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50">
-
-                        <router-link
-                            class="block px-4 py-3 text-sm hover:bg-gray-50"
-                            to="#">
-                            Profile
-                        </router-link>
-
-                        <router-link
-                            class="block px-4 py-3 text-sm hover:bg-gray-50"
-                            to="#">
-                            Bookmarks
-                        </router-link>
-
-                        <button
-                            class="w-full text-left px-4 py-3 text-sm text-red-600 hover:bg-red-50">
-                            Logout
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <div v-else class="flex gap-2">
-
-                    <router-link
-                        to="/login"
-                        class="px-4 py-2 rounded-xl bg-teal-600 text-white text-sm font-medium hover:bg-teal-700">
-                        Login
-                    </router-link>
-
-
-                    <router-link
-                        to="/register"
-                        class="px-4 py-2 rounded-xl border border-teal-600 text-teal-600 text-sm font-medium hover:bg-teal-50">
-                        Register
-                    </router-link>
-
-                </div>
-
-            </nav>
-
-
-            <button class="md:hidden p-2 rounded-lg bg-gray-100">
-                <i class="bx bx-menu text-xl"></i>
-            </button>
-
+            </div>
         </div>
-    </div>
-
-</header>
+    </header>
 </template>

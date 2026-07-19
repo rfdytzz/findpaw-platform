@@ -1,4 +1,6 @@
 <script setup>
+import Button from '@/components/Button.vue';
+import Loader from '@/components/Loader.vue';
 import { onMounted, ref } from 'vue';
 
 const isShow = ref(false)
@@ -37,13 +39,13 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex bg-slate-50 justify-center items-center h-fit md:py-5">
-        <div class="bg-white md:border border-slate-200 px-5 py-10 rounded-xl gap-5 flex flex-col md:w-[35%] w-full">
+    <div class="flex bg-slate-50 justify-center items-center min-h-screen md:py-5">
+        <div class="bg-white md:border border-slate-200 px-5 py-10 rounded-xl gap-5 flex flex-col max-w-md w-full">
             <div class="flex flex-col items-center gap-2">
                 <div class="font-semibold text-slate-900 font-inter text-2xl">Create Account</div>
                 <div class="text-md text-gray-600">Please enter your information to Sign up</div>
             </div>
-            <div class="flex gap-3 mt-2 w-full items-center justfiy-center">
+            <div class="flex gap-3 mt-2 w-full items-center justify-center">
                 <div
                     class="flex-1 flex items-center py-2 hover:bg-slate-50 cursor-pointer justify-center border rounded-md border-slate-200">
                     <i class="bx bxl-google text-xl"></i>
@@ -75,7 +77,7 @@ onMounted(() => {
                     class="flex items-center justify-between p-2 rounded-md text-sm bg-red-50 border border-red-200 text-red-700">
                     <div class="flex gap-2 items-center">
                         <i class="bx bx-info-circle text-red-600"></i>
-                        <span>Incorrect Email or Password, Please try again</span>
+                        <span>Email has been already taken</span>
                     </div>
                     <i class="bx bx-x cursor-pointer"></i>
                 </div>
@@ -115,7 +117,7 @@ onMounted(() => {
                     <label for="confirm_password" class="font-medium text-sm">Confirm Password <span>*</span></label>
                     <div
                         class="rounded-md text-sm flex-1 border border-slate-200 px-3 py-2 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
-                        <input required minlength="8" :type="isShowConfirm ? 'text' : 'password'" id="password"
+                        <input required minlength="8" :type="isShowConfirm ? 'text' : 'password'" id="confirm_password"
                             placeholder="••••••••••••" class="focus:outline-0 text-sm flex-1">
                         <i :class="isShowConfirm ? 'bx-show' : 'bx-hide'" @click="toggleShowConfirm"
                             class="bx text-md cursor-pointer"></i>
@@ -127,14 +129,10 @@ onMounted(() => {
                         <label for="remember" class="text-sm text-slate-600">Remember Me</label>
                     </div>
                 </div>
-                <button
-                    class="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-medium py-2 rounded-md cursor-pointer text-sm hover:bg-slate-800 transition duration-200">
-                    <div class="flex items-center justify-center">
-                        <div class="w-4 h-4 border-2 border-slate-100 rounded-full animate-spin border-t-slate-900">
-                        </div>
-                    </div>
-                    Sign up to FindPaw
-                </button>
+                <Button variant="sign">
+                    <loader />
+                    Sign up
+                </Button>
                 <div class="text-center w-full text-slate-600">Have an account? <router-link to="/signin"
                         class="text-black">Sign in</router-link></div>
             </form>

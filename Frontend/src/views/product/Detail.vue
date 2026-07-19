@@ -15,7 +15,7 @@ onMounted(() => {
 <template>
     <Nav />
 
-    <div class="grid px-10 mt-15 pb-10 pt-10 gap-5 grid-cols-3">
+    <div class="grid px-10 mt-15 relative pb-10 pt-10 gap-5 grid-cols-3">
         <div class="flex flex-col gap-5">
 
             <div class="overflow-hidden rounded-md bg-gray-100">
@@ -31,15 +31,15 @@ onMounted(() => {
                 </iframe>
             </div>
 
-            <div class="flex items-center gap-1 rounded-full bg-gray-100 p-1 w-fit text-sm font-medium">
+            <div class="flex items-center gap-1 rounded-full p-1 w-fit text-sm font-medium">
                 <button :class="isPhoto
-                    ? 'bg-white text-gray-800 shadow-sm'
+                    ? 'bg-gray-100 text-gray-800'
                     : 'text-gray-500'" @click="togglePhoto" class="px-4 py-2 rounded-full transition">
                     Photo
                 </button>
 
                 <button :class="!isPhoto
-                    ? 'bg-white text-gray-800 shadow-sm'
+                    ? 'bg-gray-100 text-gray-800'
                     : 'text-gray-500'" @click="togglePhoto" class="px-4 py-2 rounded-full transition">
                     Video
                 </button>
@@ -51,11 +51,11 @@ onMounted(() => {
 
             <div class="flex flex-col gap-1">
                 <h1 class="text-3xl font-bold text-gray-800">
-                    Cat - Domestic Cat
+                    Larry - Domestic Cat
                 </h1>
 
                 <div class="flex items-center gap-2 text-sm text-gray-500">
-                    <span>Indonesia • Asia</span>
+                    <span>Indonesia, Asia</span>
                     <span>•</span>
                     <span class="flex items-center gap-1">
                         <i class="bx bxs-star text-yellow-500"></i>
@@ -64,7 +64,7 @@ onMounted(() => {
                 </div>
             </div>
 
-            <div class="text-3xl font-bold text-teal-600">
+            <div class="text-3xl font-bold text-slate-800">
                 $14.99
             </div>
 
@@ -84,7 +84,7 @@ onMounted(() => {
                     <ul class="space-y-1 font-medium text-gray-700">
                         <li>• Age: 2-5 Years</li>
                         <li>• Weight: 2-5 Kg</li>
-                        <li>• Health: <span class="font-normal text-green-600">Very Good</span></li>
+                        <li>• Health: <span class="font-normal text-slate-900">Very Good</span></li>
                     </ul>
                 </div>
             </div>
@@ -95,7 +95,7 @@ onMounted(() => {
                 </h2>
 
                 <div class="flex items-center gap-2 text-sm text-gray-600">
-                    <i class="bx bx-map text-teal-600 text-lg"></i>
+                    <i class="bx bx-map text-slate-600 text-lg"></i>
                     <span>
                         Shipped from Semarang, Central Java, Indonesia
                     </span>
@@ -104,14 +104,14 @@ onMounted(() => {
 
         </div>
 
-        <div class="p-5">
-            <div class="max-w-md p-5 border border-gray-200 rounded-2xl shadow-sm bg-white">
+        <div class="h-fit">
+            <div class="max-w-md p-5 border sticky top-50 border-slate-200 rounded-md bg-white">
 
                 <div class="flex items-center justify-between mb-5">
                     <h2 class="font-semibold text-gray-800">
                         Manage Purchase
                     </h2>
-                    <span class="text-xs px-2 py-1 rounded-full bg-teal-50 text-teal-600">
+                    <span class="text-xs px-2 py-1 rounded-full bg-slate-50 text-slate-600">
                         Cat
                     </span>
                 </div>
@@ -123,7 +123,7 @@ onMounted(() => {
 
                     <div class="flex flex-col justify-center gap-1">
                         <h3 class="font-semibold text-gray-800">
-                            Cat - Domestic
+                            Larry - Domestic Cat
                         </h3>
 
                         <p class="text-sm text-gray-500">
@@ -131,7 +131,7 @@ onMounted(() => {
                         </p>
 
                         <p class="text-sm text-gray-500">
-                            Indonesia • Asia
+                            Indonesia, Asia
                         </p>
                     </div>
                 </div>
@@ -162,13 +162,13 @@ onMounted(() => {
                         Subtotal
                     </span>
 
-                    <span class="text-xl font-bold text-teal-600">
+                    <span class="text-xl font-bold text-slate-900">
                         $14.99
                     </span>
                 </div>
 
-                <button class="w-full mt-5 py-3 rounded-xl bg-teal-600 
-            hover:bg-teal-700 transition text-white font-semibold">
+                <button class="w-full mt-5 py-3 rounded-xl bg-slate-900 
+            hover:bg-slate-700 transition text-white font-semibold">
                     Buy Now
                 </button>
 

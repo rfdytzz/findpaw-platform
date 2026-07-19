@@ -1,4 +1,6 @@
 <script setup>
+import Button from '@/components/Button.vue';
+import Loader from '@/components/Loader.vue';
 import { onMounted, ref } from 'vue';
 
 const isShow = ref(false)
@@ -12,13 +14,13 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="flex bg-slate-50 justify-center items-center h-fit md:py-5">
-        <div class="bg-white md:border border-slate-200 px-5 py-10 rounded-xl gap-5 flex flex-col md:w-[35%] w-full">
+    <div class="flex bg-slate-50 justify-center items-center min-h-screen md:py-5">
+        <div class="bg-white md:border border-slate-200 px-5 py-10 rounded-xl gap-5 flex flex-col max-w-md w-full">
             <div class="flex flex-col items-center gap-2">
                 <div class="font-semibold text-slate-900 font-inter text-2xl">Welcome Back</div>
                 <div class="text-md text-gray-600">Please enter your details to Sign in</div>
             </div>
-            <div class="flex gap-3 mt-2 w-full items-center justfiy-center">
+            <div class="flex gap-3 mt-2 w-full items-center justify-center">
                 <div
                     class="flex-1 flex items-center py-2 hover:bg-slate-50 cursor-pointer justify-center border rounded-md border-slate-200">
                     <i class="bx bxl-google text-xl"></i>
@@ -78,14 +80,10 @@ onMounted(() => {
                     </div>
                     <router-link to="" class="text-sm">Forgot Password?</router-link>
                 </div>
-                <button
-                    class="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-medium py-2 rounded-md cursor-pointer text-sm hover:bg-slate-800 transition duration-200">
-                    <div class="flex items-center justify-center">
-                        <div class="w-4 h-4 border-2 border-slate-100 rounded-full animate-spin border-t-slate-900">
-                        </div>
-                    </div>
-                    Sign in to FindPaw
-                </button>
+                <Button variant="sign">
+                    <loader />
+                    Sign in
+                </Button>
                 <div class="text-center w-full text-slate-600">New on our platform? <router-link to="/signup    "
                         class="text-black">Create an account</router-link></div>
             </form>

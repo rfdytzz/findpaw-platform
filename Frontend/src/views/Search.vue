@@ -11,15 +11,15 @@ import ProductCards from '@/components/ProductCards.vue';
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
             <aside class="lg:col-span-1">
-                <div class="sticky top-24">
-                    <h2 class="font-semibold text-gray-800">
+                <div class="sticky top-22">
+                    <h2 class="font-semibold px-4 text-gray-800">
                         Filter
                     </h2>
 
-                    <div class="space-y-4 mt-5">
+                    <div class="space-y-1 mt-2">
 
                         <details open
-                            class="group rounded-md border border-gray-200 bg-white shadow-sm overflow-hidden">
+                            class="group overflow-hidden">
                             <summary
                                 class="flex items-center justify-between p-4 cursor-pointer text-sm font-medium text-gray-700">
                                 Category
@@ -27,7 +27,7 @@ import ProductCards from '@/components/ProductCards.vue';
                                 <i class="bx bx-chevron-down transition group-open:rotate-180"></i>
                             </summary>
 
-                            <div class="border-t border-gray-200 p-4 space-y-3">
+                            <div class="px-4 pb-5 space-y-3">
 
                                 <label class="flex items-center gap-3 text-sm text-gray-700">
                                     <input type="checkbox" class="size-4 rounded border-gray-300">
@@ -47,9 +47,10 @@ import ProductCards from '@/components/ProductCards.vue';
                             </div>
                         </details>
 
+                        <hr class="text-gray-200">
 
-                        <details open
-                            class="group rounded-md border border-gray-200 bg-white shadow-sm overflow-hidden">
+                        <details
+                            class="group overflow-hidden">
 
                             <summary
                                 class="flex items-center justify-between p-4 cursor-pointer text-sm font-medium text-gray-700">
@@ -59,7 +60,7 @@ import ProductCards from '@/components/ProductCards.vue';
                             </summary>
 
 
-                            <div class="border-t border-gray-200 p-4">
+                            <div class="px-4">
 
                                 <div class="flex gap-3">
 
@@ -92,18 +93,7 @@ import ProductCards from '@/components/ProductCards.vue';
 
                     <div class="flex gap-2 flex-wrap">
 
-                        <span
-                            class="flex items-center gap-1 text-sm px-3 py-1.5 rounded-full bg-teal-50 text-teal-600 border border-teal-200">
-                            Cat
-                            <i class="bx bx-x"></i>
-                        </span>
-
-
-                        <span
-                            class="flex items-center gap-1 text-sm px-3 py-1.5 rounded-full bg-teal-50 text-teal-600 border border-teal-200">
-                            1-2 y/o
-                            <i class="bx bx-x"></i>
-                        </span>
+                        <span class="text-sm flex items-center justify-center px-1.5 py-1 rounded-full bg-gray-100 hover:bg-gray-200">Cat <i class="bx bx-x"></i></span>
 
                     </div>
 

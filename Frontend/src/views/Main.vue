@@ -2,6 +2,7 @@
 import Nav from '@/components/Nav.vue';
 import Footer from '@/components/Footer.vue';
 import { onMounted } from 'vue';
+import Button from '@/components/Button.vue';
 
 onMounted(() => {
     document.title = 'FindPaw'
@@ -11,206 +12,205 @@ onMounted(() => {
 <template>
     <Nav />
 
-    <section class="">
-        <div class="grid-cols-2 grid">
-            <div class="w-full col-span-2 md:col-span-1 h-screen items-start flex-col justify-center md:p-15 p-10 flex">
-                <div class="py-1 px-2 bg-teal-600/20 text-teal-600 rounded-full text-sm flex items-center gap-2">
-                    <div class="bg-teal-500 animate-pulse rounded p-1"></div> Coming soon
-                </div>
-                <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl">
-                    Understand user flow and
-                    <strong class="text-teal-600"> increase </strong>
-                    conversions
-                </h1>
+    <div class="relative w-full h-screen bg-white overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-center bg-cover z-0"
+            style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6kJNbOdTh7CJim_pJdlLOBn-tZ7UGSJS-H9CTzautg&s=10');">
+        </div>
+        <div class="inset-0 bg-black/50 backdrop-blur-md absolute">
 
-                <p class="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi. Natus, provident
-                    accusamus impedit minima harum corporis iusto.
-                </p>
-                <div class="mt-4 flex gap-4 sm:mt-6">
-                    <input
-                        class="inline-block md:focus:w-100 w-60 transition-all duration-200 rounded border border-gray-200 px-5 py-3 font-medium text-gray-700 shadow-sm hover:bg-gray-50 hover:text-gray-900"
-                        placeholder="Search...">
-                    </input>
-
-                    <a class="inline-block rounded border border-teal-600 bg-teal-600 px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-teal-700"
-                        href="#">
-                        <div class="flex items-center gap-2">
-                            <i class="bx bx-search"></i>Search
-                        </div>
-                    </a>
+        </div>
+        <div class="relative z-10 flex items-center justify-center  min-h-screen w-full font-inter">
+            <div class="flex flex-col justify-center items-center p-5">
+                <div class="flex flex-col gap-1 text-white text-center">
+                    <div class="font-inter font-bold text-7xl">Lorem ipsum dolor sit amet consectetur.</div>
+                    <div class="font-inter">vero iure adipisci provident natus sunt sint exercitationem numquam expedita
+                        unde!</div>
                 </div>
-            </div>
-            <div class="col-span-2 hidden md:block md:col-span-1 ">
-                <div class="w-full h-screen flex items-center justify-center">
-                    <img src="/public/img/hero.png" class="w-70  animate-pulse hover:scale-105 transition duration-200"
-                        alt="">
+                <div class="flex gap-3 mt-5 items-center">
+                    <Button>
+                        Explore
+                        <i class="bx bx-navigation"></i>
+                    </Button>
                 </div>
             </div>
         </div>
-    </section>
 
-    <div class="p-10">
-        <div class="mb-5 flex justify-start items-center">
-            <div class="flex flex-col gap-2">
-                <label for="" class="text-sm font-medium text-gray-700"> Select the type of pet </label>
+    </div>
 
-                <div class="flex justify-start items-center gap-5">
-                    <select name="Headline" id="Headline"
-                        class="mt-0.5 w-40 rounded p-2 focus:outline-teal-600 border-gray-300 shadow-sm sm:text-sm">
-                        <option value="">Select type</option>
-                        <option value="">Cat</option>
-                        <option value="">Dog</option>
-                        <option value="">Snake</option>
-                        <option value="">Hamsters</option>
-                        <option value="">Bird</option>
-                        <option value="">Fish</option>
-                    </select>
-                    <select name="Headline" id="Headline"
-                        class="mt-0.5 w-40 rounded p-2 focus:outline-teal-600 border-gray-300 shadow-sm sm:text-sm">
-                        <option value="">Select age category</option>
-                        <option value="">0-5 month</option>
-                        <option value="">5-12 month</option>
-                        <option value="">1-2 years</option>
-                        <option value="">3-5 years</option>
-                        <option value="">5+ years</option>
-                    </select>
-                    <select name="Headline" id="Headline"
-                        class="mt-0.5 w-fit rounded p-2 focus:outline-teal-600 border-gray-300 shadow-sm sm:text-sm">
-                        <option value="">Select the pet's origin</option>
-                        <option value="">America</option>
-                        <option value="">Latin America</option>
-                        <option value="">Europe</option>
-                        <option value="">Asia</option>
-                        <option value="">Africa</option>
-                        <option value="">Oceania</option>
-                    </select>
-                    <button
-                        class="mt-0.5 w-fit rounded p-2 focus:outline-teal-600 border-teal-600 bg-teal-600 text-white hover:bg-teal-700 shadow-sm sm:text-sm flex items-center gap-2 cursor-pointer"><i
-                            class="bx bx-search"></i>Search</button>
-                </div>
-            </div>
-        </div>
-        <div class="grid grid-cols-4 gap-5">
-            <router-link to="" class="group relative w-full block overflow-hidden">
+    <div class="p-10 pb-0">
+        <div class="mb-5 text-xl font-semibold">Cats</div>
+        <div class="grid md:grid-cols-4 grid-cols-1 gap-5">
+            <router-link to=""
+                class="group relative border hover:border-slate-300 transition duration-200 border-slate-200 w-full block overflow-hidden">
                 <button
-                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
+                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 flex items-center text-gray-900 transition hover:text-gray-900/75">
                     <span class="sr-only">Wishlist</span>
 
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor" class="size-4">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                    </svg>
+                    <i class="bx bx-bookmark"></i>
                 </button>
 
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6kJNbOdTh7CJim_pJdlLOBn-tZ7UGSJS-H9CTzautg&s=10"
                     alt="" class="w-full object-cover transition duration-500 group-hover:scale-105 h-50" />
 
-                <div class="relative border border-gray-100 hover:border-gray-200 bg-white p-4">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-teal-600 text-white px-3 py-1.5 text-xs font-medium whitespace-nowrap"> Cat </span>
-                            <span class="bg-teal-600 text-white px-3 py-1.5 text-xs font-medium whitespace-nowrap"> 1-2 y/o </span>
-                        </div>
-                        <p class="font-medium text-gray-600 text-sm">Indonesia, Asia</p>
-                    </div>
+                <div class="relative bg-white p-4">
+                    <p class="font-medium text-gray-600 text-sm">Indonesia, Asia</p>
 
-                    <h3 class="mt-4 text-md font-medium text-gray-900">Larry - Domesctic Cat</h3>
+                    <h3 class="text-md font-medium text-gray-900">Larry - Domesctic Cat</h3>
 
                     <p class="mt-1.5 text-sm text-gray-700">$14.99</p>
                 </div>
             </router-link>
-            <router-link to="" class="group relative w-full block overflow-hidden">
+            <router-link to=""
+                class="group relative border hover:border-slate-300 transition duration-200 border-slate-200 w-full block overflow-hidden">
                 <button
-                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
+                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 flex items-center text-gray-900 transition hover:text-gray-900/75">
                     <span class="sr-only">Wishlist</span>
 
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor" class="size-4">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                    </svg>
+                    <i class="bx bx-bookmark"></i>
                 </button>
 
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHoXOLHRYl_irUL9Y79PPPem9R7wh8uyP92mjBk47IwEiAgsWRPAFgBlI&s=10"
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6kJNbOdTh7CJim_pJdlLOBn-tZ7UGSJS-H9CTzautg&s=10"
                     alt="" class="w-full object-cover transition duration-500 group-hover:scale-105 h-50" />
 
-                <div class="relative border border-gray-100 hover:border-gray-200 bg-white p-4">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-teal-600 text-white px-3 py-1.5 text-xs font-medium whitespace-nowrap"> Dog </span>
-                            <span class="bg-teal-600 text-white px-3 py-1.5 text-xs font-medium whitespace-nowrap"> 1-2 y/o </span>
-                        </div>
-                        <p class="font-medium text-gray-600 text-sm">Australia, Oceania</p>
-                    </div>
+                <div class="relative bg-white p-4">
+                    <p class="font-medium text-gray-600 text-sm">Australia, Oceania</p>
 
-                    <h3 class="mt-4 text-md font-medium text-gray-900">Dominic - Husky Dog</h3>
+                    <h3 class="text-md font-medium text-gray-900">Nichelo - Domesctic Cat</h3>
 
-                    <p class="mt-1.5 text-sm text-gray-700">$49.99</p>
+                    <p class="mt-1.5 text-sm text-gray-700">$14.99</p>
                 </div>
             </router-link>
-            <router-link to="" class="group relative w-full block overflow-hidden">
+            <router-link to=""
+                class="group relative border hover:border-slate-300 transition duration-200 border-slate-200 w-full block overflow-hidden">
                 <button
-                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
+                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 flex items-center text-gray-900 transition hover:text-gray-900/75">
                     <span class="sr-only">Wishlist</span>
 
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor" class="size-4">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                    </svg>
+                    <i class="bx bx-bookmark"></i>
                 </button>
 
-                <img src="https://assets.speakcdn.com/assets/2941/ball_python-min_(1)_(1).jpg"
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6kJNbOdTh7CJim_pJdlLOBn-tZ7UGSJS-H9CTzautg&s=10"
                     alt="" class="w-full object-cover transition duration-500 group-hover:scale-105 h-50" />
 
-                <div class="relative border border-gray-100 hover:border-gray-200 bg-white p-4">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-teal-600 text-white px-3 py-1.5 text-xs font-medium whitespace-nowrap"> Snake </span>
-                            <span class="bg-teal-600 text-white px-3 py-1.5 text-xs font-medium whitespace-nowrap"> 3-5 y/o </span>
-                        </div>
-                        <p class="font-medium text-gray-600 text-sm"> Senegal, Africa</p>
-                    </div>
+                <div class="relative bg-white p-4">
+                    <p class="font-medium text-gray-600 text-sm">Japan, Asia</p>
 
-                    <h3 class="mt-4 text-md font-medium text-gray-900">Ball Python - Python</h3>
+                    <h3 class="text-md font-medium text-gray-900">Saiken - Domesctic Cat</h3>
 
-                    <p class="mt-1.5 text-sm text-gray-700">$69.99</p>
+                    <p class="mt-1.5 text-sm text-gray-700">$11.99</p>
                 </div>
             </router-link>
-            <router-link to="" class="group relative w-full block overflow-hidden">
+            <router-link to=""
+                class="group relative border hover:border-slate-300 transition duration-200 border-slate-200 w-full block overflow-hidden">
                 <button
-                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
+                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 flex items-center text-gray-900 transition hover:text-gray-900/75">
                     <span class="sr-only">Wishlist</span>
 
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor" class="size-4">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                    </svg>
+                    <i class="bx bx-bookmark"></i>
                 </button>
 
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn256pkYNqJMknDq_qA9QVz4F2RlSXinhrO9TKvlnhWg&s=10"
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6kJNbOdTh7CJim_pJdlLOBn-tZ7UGSJS-H9CTzautg&s=10"
                     alt="" class="w-full object-cover transition duration-500 group-hover:scale-105 h-50" />
 
-                <div class="relative border border-gray-100 hover:border-gray-200 bg-white p-4">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-teal-600 text-white px-3 py-1.5 text-xs font-medium whitespace-nowrap"> Bird </span>
-                            <span class="bg-teal-600 text-white px-3 py-1.5 text-xs font-medium whitespace-nowrap"> 1-2 y/o </span>
-                        </div>
-                        <p class="font-medium text-gray-600 text-sm">Indonesia, Asia</p>
-                    </div>
+                <div class="relative bg-white p-4">
+                    <p class="font-medium text-gray-600 text-sm">Thailand, Asia</p>
 
-                    <h3 class="mt-4 text-md font-medium text-gray-900">White Cockatoo - Cockatoo</h3>
+                    <h3 class="text-md font-medium text-gray-900">Champu - Domesctic Cat</h3>
 
-                    <p class="mt-1.5 text-sm text-gray-700">$99.99</p>
+                    <p class="mt-1.5 text-sm text-gray-700">$9.99</p>
                 </div>
             </router-link>
         </div>
         <div class="flex justify-center mt-8">
-            <router-link to="/search" class="p-2 bg-teal-600 rounded text-white hover:bg-teal-700 text-sm">Click for more</router-link>
+            <Button>Click for more cats</Button>
+        </div>
+    </div>
+    <div class="p-10 pt-0">
+        <div class="mb-5 text-xl font-semibold">Dogs</div>
+        <div class="grid md:grid-cols-4 grid-cols-1 gap-5">
+            <router-link to=""
+                class="group relative border hover:border-slate-300 transition duration-200 border-slate-200 w-full block overflow-hidden">
+                <button
+                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 flex items-center text-gray-900 transition hover:text-gray-900/75">
+                    <span class="sr-only">Wishlist</span>
+
+                    <i class="bx bx-bookmark"></i>
+                </button>
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBDnOWsZOdOXGUCUgu036RnICqc-GKj1-96DbezJ1jQ&s=10"
+                    alt="" class="w-full object-cover transition duration-500 group-hover:scale-105 h-50" />
+
+                <div class="relative bg-white p-4">
+                    <p class="font-medium text-gray-600 text-sm">Hungary, Europe</p>
+
+                    <h3 class="text-md font-medium text-gray-900">Dominican - Husky Dog</h3>
+
+                    <p class="mt-1.5 text-sm text-gray-700">$49.99</p>
+                </div>
+            </router-link>
+            <router-link to=""
+                class="group relative border hover:border-slate-300 transition duration-200 border-slate-200 w-full block overflow-hidden">
+                <button
+                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 flex items-center text-gray-900 transition hover:text-gray-900/75">
+                    <span class="sr-only">Wishlist</span>
+
+                    <i class="bx bx-bookmark"></i>
+                </button>
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBDnOWsZOdOXGUCUgu036RnICqc-GKj1-96DbezJ1jQ&s=10"
+                    alt="" class="w-full object-cover transition duration-500 group-hover:scale-105 h-50" />
+
+                <div class="relative bg-white p-4">
+                    <p class="font-medium text-gray-600 text-sm">Argentina, South America</p>
+
+                    <h3 class="text-md font-medium text-gray-900">Veron - Husky Dog</h3>
+
+                    <p class="mt-1.5 text-sm text-gray-700">$14.99</p>
+                </div>
+            </router-link>
+            <router-link to=""
+                class="group relative border hover:border-slate-300 transition duration-200 border-slate-200 w-full block overflow-hidden">
+                <button
+                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 flex items-center text-gray-900 transition hover:text-gray-900/75">
+                    <span class="sr-only">Wishlist</span>
+
+                    <i class="bx bx-bookmark"></i>
+                </button>
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBDnOWsZOdOXGUCUgu036RnICqc-GKj1-96DbezJ1jQ&s=10"
+                    alt="" class="w-full object-cover transition duration-500 group-hover:scale-105 h-50" />
+
+                <div class="relative bg-white p-4">
+                    <p class="font-medium text-gray-600 text-sm">Russia, Europe</p>
+
+                    <h3 class="text-md font-medium text-gray-900">Tragylov - Husky Dog</h3>
+
+                    <p class="mt-1.5 text-sm text-gray-700">$11.99</p>
+                </div>
+            </router-link>
+            <router-link to=""
+                class="group relative border hover:border-slate-300 transition duration-200 border-slate-200 w-full block overflow-hidden">
+                <button
+                    class="absolute inset-e-4 top-4 z-10 rounded-full bg-white p-1.5 flex items-center text-gray-900 transition hover:text-gray-900/75">
+                    <span class="sr-only">Wishlist</span>
+
+                    <i class="bx bx-bookmark"></i>
+                </button>
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBDnOWsZOdOXGUCUgu036RnICqc-GKj1-96DbezJ1jQ&s=10"
+                    alt="" class="w-full object-cover transition duration-500 group-hover:scale-105 h-50" />
+
+                <div class="relative bg-white p-4">
+                    <p class="font-medium text-gray-600 text-sm">Vietnam, Asia</p>
+
+                    <h3 class="text-md font-medium text-gray-900">Qien - Husky Dog</h3>
+
+                    <p class="mt-1.5 text-sm text-gray-700">$9.99</p>
+                </div>
+            </router-link>
+        </div>
+        <div class="flex justify-center mt-8">
+            <Button>Click for more dogs</Button>
         </div>
     </div>
 
