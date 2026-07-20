@@ -10,6 +10,8 @@ import ChangePassword from '@/views/user/ChangePassword.vue'
 import Profile from '@/views/user/Profile.vue'
 import VerifiedAccount from '@/views/user/VerifiedAccount.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import NProgress from "nprogress"
+import "nprogress/nprogress.css"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,5 +31,22 @@ const router = createRouter({
     { path: '/:pathMatch(.*)*', component: NotFound }
   ],
 })
+
+NProgress.configure({
+    showSpinner: false,
+});
+
+router.beforeEach((to, from, next) => {
+    NProgress.start();
+    next();
+});
+
+router.afterEach(() => {
+    NProgress.done();
+});
+
+router.onError(() => {
+    NProgress.done();
+});
 
 export default router
