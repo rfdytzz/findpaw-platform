@@ -43,10 +43,10 @@ const toggleSidebar = () => {
         </div>
         <div class="hidden md:block">
             <div class="flex relative">
-                <img @click="toggleDrop" src="https://ui-avatars.com/api/?name=Elon+Musk"
-                    class="size-8 rounded-full relative cursor-pointer" alt="">
+                <img @click="toggleDrop" alt="avatar" src="https://ui-avatars.com/api/?name=Elon+Musk"
+                    class="size-8 rounded-full relative cursor-pointer">
                 <div :class="isDrop ? 'visible translate-y-0 translate-x-0 opacity-100 scale-100' : 'invisible -translate-y-3 translate-x-0.5 opacity-0 scale-95'"
-                    class="absolute bg-white/95 w-40 border border-slate-200 rounded-md top-10 inset-e-0 p-1 transition-all duration-65 ease-in-out">
+                    class="absolute bg-white w-40 border border-slate-200 rounded-md top-10 inset-e-0 p-1 transition-all duration-65 ease-in-out">
                     <div class="flex flex-col font-inter text-sm gap-1">
                         <router-link to="/profile"
                             class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Profile<i
@@ -65,7 +65,7 @@ const toggleSidebar = () => {
             </div>
         </div>
         <div class="block md:hidden">
-            <button @click="toggleSidebar" class="flex flex-col gap-2 cursor-pointer">
+            <button aria-label="Open navigation menu" @click="toggleSidebar" class="flex flex-col gap-2 cursor-pointer">
                 <span class="w-7 h-0.5 bg-slate-700"></span>
                 <span class="w-7 h-0.5 bg-slate-700"></span>
                 <span class="w-7 h-0.5 bg-slate-700"></span>
@@ -73,15 +73,17 @@ const toggleSidebar = () => {
         </div>
     </header>
 
-    <div @click="toggleSidebar" :class="isSidebar ? 'block' : 'hidden'" class="inset-0 md:hidden block bg-black/60 backdrop-blur fixed z-50"></div>
+    <div @click="toggleSidebar" :class="isSidebar ? 'block' : 'hidden'"
+        class="inset-0 md:hidden block bg-black/60 backdrop-blur fixed z-50"></div>
 
-    <div :class="isSidebar ? 'translate-x-0' : 'translate-x-full'" class="md:hidden block transition duration-200 ease-in-out fixed top-0 right-0 bg-gray-50 h-screen w-75 z-60">
+    <div :class="isSidebar ? 'translate-x-0' : 'translate-x-full'"
+        class="md:hidden block transition duration-200 ease-in-out fixed top-0 right-0 bg-gray-50 h-screen w-75 z-60">
         <div class="flex flex-col p-5">
             <div class="text-xl font-semibold font-inter flex justify-between items-center">
                 <div class="font-extrabold">FindPaw</div>
                 <i @click="toggleSidebar" class="bx bx-x text-3xl cursor-pointer"></i>
             </div>
-            <ul class="mt-10 w-full flex flex-col gap-8 overflow-scroll">
+            <div class="mt-10 w-full flex flex-col gap-8 overflow-scroll">
                 <div class="flex items-center gap-5">
                     <img class="rounded-full" src="https://ui-avatars.com/api/?name=Elon+Musk">
                     <div class="flex flex-col">
@@ -91,23 +93,26 @@ const toggleSidebar = () => {
                 </div>
                 <div class="flex flex-col gap-2">
                     <div class="font-semibold text-sm text-gray-600">Menu</div>
-                    <router-link to="" class="p-2 hover:bg-gray-100 bg-gray-100 text-black rounded-md">Home</router-link>
+                    <router-link to=""
+                        class="p-2 hover:bg-gray-100 bg-gray-100 text-black rounded-md">Home</router-link>
                     <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">About</router-link>
                     <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Explore</router-link>
                 </div>
                 <div class="flex flex-col gap-2">
                     <div class="font-semibold text-sm text-gray-600">Account</div>
                     <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Profile</router-link>
-                    <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Change Password</router-link>
+                    <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Change
+                        Password</router-link>
                     <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Bookmarks</router-link>
                 </div>
                 <div class="flex flex-col gap-2">
                     <div class="font-semibold text-sm text-gray-600">Services</div>
                     <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">FAQs</router-link>
-                    <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Customer Service</router-link>
+                    <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Customer
+                        Service</router-link>
                     <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Report</router-link>
                 </div>
-            </ul>
+            </div>
         </div>
     </div>
 </template>

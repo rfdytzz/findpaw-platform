@@ -1,8 +1,13 @@
 <script setup>
 import Nav from '@/components/Nav.vue';
 import Footer from '@/components/Footer.vue';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import Button from '@/components/Button.vue';
+
+const isSearch = ref(true)
+const toggleSearch = () => {
+    isSearch.value = !isSearch.value
+}
 
 onMounted(() => {
     document.title = 'FindPaw'
@@ -12,31 +17,60 @@ onMounted(() => {
 <template>
     <Nav />
 
-    <div
-        class="relative w-full h-55 mt-15 md:mt-0 md:min-h-screen bg-white overflow-hidden flex items-center justify-center">
-        <div class="absolute inset-0 bg-center bg-cover z-0"
-            style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6kJNbOdTh7CJim_pJdlLOBn-tZ7UGSJS-H9CTzautg&s=10');">
-        </div>
-        <div class="inset-0 bg-black/50 backdrop-blur-md absolute">
+    <div class="w-full min-h-screen font-inter bg-linear-to-t mt-8 from-white to-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 md:gap-20 items-center min-h-screen">
+                <div>
+                    <div class="inline-flex px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-sm font-medium">
+                        Trusted Pet Marketplace
+                    </div>
+                    <h1 class="mt-5 text-5xl font-bold leading-tight text-slate-900">
+                        Find Your
+                        <span class="text-gray-600">Perfect Pet</span>
+                    </h1>
+                    <p class="mt-4 text-lg text-slate-500 leading-8 max-w-xl">
+                        Browse thousands of pets from trusted owners and shelters.
+                        Search by category, breed, age, and location.
+                    </p>
+                    <div v-if="isSearch"
+                        class="mt-10 flex bg-gray-100 rounded-xl focus-within:bg-gray-100 focus-within:border-gray-300 transition duration-200 border border-gray-100 focus:border-gray-200 overflow-hidden max-w-xl">
+                        <input type="text" placeholder="Search pets..." class="flex-1 px-5 py-4 outline-none" />
+                        <button class="bg-slate-900 hover:bg-slate-700 px-8 text-white transition">
+                            Search
+                        </button>
+                    </div>
+                    <div v-if="!isSearch"
+                        class="mt-5 w-[85%]">
+                        <router-link to="/search" class="p-3 bg-slate-900 text-white w-full rounded-xl flex items-center gap-2 justify-center hover:bg-slate-700 transition duration-200 group">Explore <i class="bx bx-navigation group-hover:rotate-45 transition duration-200 ease-in-out group-hover:scale-105"></i></router-link>
+                    </div>
+                    <div class="mt-5">
+                        <div class="flex text-sm items-center justify-start">
+                            <button @click="toggleSearch" :class="isSearch ? 'bg-gray-100' : ''" class="p-2 text-gray-500 hover:text-black rounded-md">Search</button>
+                            <button @click="toggleSearch" :class="!isSearch ? 'bg-gray-100' : ''" class="p-2 text-gray-500 hover:text-black rounded-md">Explore</button>
+                        </div>
+                    </div>
+                    <div class="flex gap-10 mt-8">
+                        <div>
+                            <h2 class="text-3xl font-bold">3K+</h2>
+                            <p class="text-slate-500">Pets</p>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold">850+</h2>
+                            <p class="text-slate-500">Adoptions</p>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold">120+</h2>
+                            <p class="text-slate-500">Shelters</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative flex justify-center">
+                    <img src="/img/hero.png" alt="Pet" class="w-100 drop-shadow-2xl" />
+                </div>
 
-        </div>
-        <div class="relative z-10 flex items-center justify-center  min-h-screen w-full font-inter">
-            <div class="flex flex-col justify-center items-center p-5">
-                <div class="flex flex-col gap-1 text-white text-center">
-                    <div class="font-inter font-bold text-2xl md:text-7xl">Lorem ipsum dolor sit amet consectetur.</div>
-                    <div class="font-inter hidden md:block">vero iure adipisci provident natus sunt sint exercitationem
-                        numquam expedita
-                        unde!</div>
-                </div>
-                <div class="flex gap-3 mt-5 items-center">
-                    <Button variant="light">
-                        Explore
-                        <i class="bx bx-navigation"></i>
-                    </Button>
-                </div>
             </div>
-        </div>
 
+        </div>
     </div>
 
     <div class="md:p-10 p-5 pb-0">
@@ -288,12 +322,12 @@ onMounted(() => {
         </div>
     </div>
 
-    <marquee behavior="" direction="" class="bg-slate-900 text-white font-inter text-xl font-normal p-1.5"><span
+    <marquee behavior="" direction="" class="bg-slate-900 text-sm text-white font-inter font-normal p-1.5"><span
             class="font-semibold">FindPaw</span> is
         a project by Rafka for portfolio purposes.</marquee>
-    <marquee behavior="" direction="right" class="bg-white text-slate-900 font-inter text-xl font-semibold p-1.5"><span
+    <marquee behavior="" direction="" class="bg-white text-slate-900 font-inter text-sm font-semibold p-1.5"><span
             class="font-normal">&copy; 2026 FindPaw</span></marquee>
-    <marquee behavior="" direction="" class="bg-slate-900 text-white font-inter text-xl font-normal p-1.5"><span
+    <marquee behavior="" direction="" class="bg-slate-900 text-white font-inter text-sm font-normal p-1.5"><span
             class="font-semibold">FindPaw</span> is
         a project by Rafka for portfolio purposes.</marquee>
 
