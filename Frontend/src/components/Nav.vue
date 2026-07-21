@@ -1,6 +1,7 @@
 <script setup>
+import { useUser } from '@/composables/useUser';
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
@@ -15,23 +16,8 @@ const toggleSidebar = () => {
     isSidebar.value = !isSidebar.value
 }
 
-const data = ref('')
-const getData = async () => {
-    try {
-        const token = localStorage.getItem('token')
-        const res = await axios.get('http://localhost:8000/api/user',
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }
-        )
-        data.value = res.data
-        console.log(data.value)
-    } catch (error) {
-        console.log(error)
-    }
-}
+const { data, loading, getData } = useUser()
+const avatar = computed(() => data.value?.name)
 
 onMounted(() => {
     getData()
@@ -73,7 +59,7 @@ onMounted(() => {
             </div>
             <div class="hidden md:block">
                 <div class="flex relative">
-                    <img @click="toggleDrop" alt="avatar" src="https://ui-avatars.com/api/?name=Elon+Musk"
+                    <img @click="toggleDrop" alt="avatar" :src="`https://ui-avatars.com/api/?name=${avatar}`"
                         class="size-8 rounded-full relative cursor-pointer">
                     <div :class="isDrop ? 'visible translate-y-0 translate-x-0 opacity-100 scale-100' : 'invisible -translate-y-3 translate-x-0.5 opacity-0 scale-95'"
                         class="absolute bg-white w-40 border border-slate-200 rounded-md top-10 inset-e-0 p-1 transition-all duration-65 ease-in-out">
