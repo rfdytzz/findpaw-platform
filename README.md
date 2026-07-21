@@ -42,12 +42,13 @@ findpaw-platform/
 └── frontend/            # Vue.js source code
     ├── src/
     │   ├── assets/      # Images, Global Styles (Tailwind)
+    │   ├── composables/ # Composables API
     │   ├── components/  # Reusable UI components
     │   └── views/       # Main page layouts
     ├── package.json     # Node.js dependencies
     └── vite.config.js   # Vite configurations
 ```
 
-## 📄 License
+## License
 
 This project is intended for portfolio purposes.
