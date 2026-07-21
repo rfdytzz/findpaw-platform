@@ -1,4 +1,5 @@
 <script setup>
+import { useSignout } from '@/composables/useSignout';
 import { useUser } from '@/composables/useUser';
 import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
@@ -17,6 +18,7 @@ const toggleSidebar = () => {
 }
 
 const { data, loading, getData } = useUser()
+const { getSignout }  = useSignout()
 const avatar = computed(() => data.value?.name)
 
 onMounted(() => {
@@ -53,30 +55,26 @@ onMounted(() => {
                 </router-link>
             </ul>
         </div>
-        <div class="flex items-center gap-5">
-            <div class="flex items-center p-2 rounded-full hover:bg-gray-100 transition duration-100 text-xl">
-                <i class="bx bx-conversation"></i>
-            </div>
-            <div class="hidden md:block">
-                <div class="flex relative">
-                    <img @click="toggleDrop" alt="avatar" :src="`https://ui-avatars.com/api/?name=${avatar}`"
-                        class="size-8 rounded-full relative cursor-pointer">
-                    <div :class="isDrop ? 'visible translate-y-0 translate-x-0 opacity-100 scale-100' : 'invisible -translate-y-3 translate-x-0.5 opacity-0 scale-95'"
-                        class="absolute bg-white w-40 border border-slate-200 rounded-md top-10 inset-e-0 p-1 transition-all duration-65 ease-in-out">
-                        <div class="flex flex-col font-inter text-sm gap-1">
-                            <router-link to="/profile"
-                                class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Profile<i
-                                    class="bx bx-user"></i></router-link>
-                            <router-link to="/profile/settings"
-                                class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Settings<i
-                                    class="bx bx-cog"></i></router-link>
-                            <router-link to="/profile/bookmarks"
-                                class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Bookmarks<i
-                                    class="bx bx-bookmarks"></i></router-link>
-                            <router-link to="/signup"
-                                class="p-2 flex items-center justify-between hover:bg-red-50 rounded-md transition duration-200 ease-in-out text-red-800 hover:text-red-700">Sign
-                                out<i class="bx bx-log-out"></i></router-link>
-                        </div>
+        <div class="hidden md:block">
+            <div class="flex relative">
+                <img @click="toggleDrop" alt="avatar" :src="`https://ui-avatars.com/api/?name=${avatar}`"
+                    class="size-8 rounded-full relative cursor-pointer">
+                <div :class="isDrop ? 'visible translate-y-0 translate-x-0 opacity-100 scale-100' : 'invisible -translate-y-3 translate-x-0.5 opacity-0 scale-95'"
+                    class="absolute bg-white w-40 border border-slate-200 rounded-md top-10 inset-e-0 p-1 transition-all duration-65 ease-in-out">
+                    <div class="flex flex-col font-inter text-sm gap-1">
+                        <router-link to="/profile"
+                            class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Profile<i
+                                class="bx bx-user"></i></router-link>
+                        <router-link to="/profile/settings"
+                            class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Settings<i
+                                class="bx bx-cog"></i></router-link>
+                        <router-link to="/profile/bookmarks"
+                            class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Bookmarks<i
+                                class="bx bx-bookmarks"></i></router-link>
+                        <button
+                            @click="getSignout" type="submit"
+                            class="p-2 flex items-center cursor-pointer justify-between hover:bg-red-50 rounded-md transition duration-200 ease-in-out text-red-800 hover:text-red-700">Sign
+                            out<i class="bx bx-log-out"></i></button>
                     </div>
                 </div>
             </div>

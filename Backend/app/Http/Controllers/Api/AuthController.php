@@ -48,4 +48,13 @@ class AuthController extends Controller
             'message' => 'create account successful'
         ]);
     }
+
+    public function signout(Request $requset) {
+        $user = Auth::user();
+        $requset = $user->currentAccessToken()->delete();
+
+        return response()->json([
+            'message' => 'Sign out Success'
+        ]);
+    }
 }

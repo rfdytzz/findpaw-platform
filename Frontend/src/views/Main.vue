@@ -39,14 +39,18 @@ onMounted(() => {
                             Search
                         </button>
                     </div>
-                    <div v-if="!isSearch"
-                        class="mt-5 w-[85%]">
-                        <router-link to="/search" class="p-3 bg-slate-900 text-white w-full rounded-xl flex items-center gap-2 justify-center hover:bg-slate-700 transition duration-200 group">Explore <i class="bx bx-navigation group-hover:rotate-45 transition duration-200 ease-in-out group-hover:scale-105"></i></router-link>
+                    <div v-if="!isSearch" class="mt-5 w-[85%]">
+                        <router-link to="/search"
+                            class="p-3 bg-slate-900 text-white w-full rounded-xl flex items-center gap-2 justify-center hover:bg-slate-700 transition duration-200 group">Explore
+                            <i
+                                class="bx bx-navigation group-hover:rotate-45 transition duration-200 ease-in-out group-hover:scale-105"></i></router-link>
                     </div>
                     <div class="mt-5">
                         <div class="flex text-sm items-center justify-start">
-                            <button @click="toggleSearch" :class="isSearch ? 'bg-gray-100' : ''" class="p-2 text-gray-500 hover:text-black rounded-md">Search</button>
-                            <button @click="toggleSearch" :class="!isSearch ? 'bg-gray-100' : ''" class="p-2 text-gray-500 hover:text-black rounded-md">Explore</button>
+                            <button @click="toggleSearch" :class="isSearch ? 'bg-gray-100' : ''"
+                                class="p-2 text-gray-500 hover:text-black rounded-md">Search</button>
+                            <button @click="toggleSearch" :class="!isSearch ? 'bg-gray-100' : ''"
+                                class="p-2 text-gray-500 hover:text-black rounded-md">Explore</button>
                         </div>
                     </div>
                     <div class="flex gap-10 mt-8">
@@ -64,15 +68,17 @@ onMounted(() => {
                         </div>
                     </div>
                 </div>
-                <div class="relative flex justify-center">
-                    <img src="/img/hero.png" alt="Pet" class="w-100 drop-shadow-2xl" />
+                <div class="hidden md:block">
+                    <div class="relative flex justify-center">
+                        <img src="/img/hero.png" alt="Pet" class="w-100 drop-shadow-2xl" />
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    
-    
+
+
     <div class="md:p-10 p-5 pb-0">
         <div class="md:hidden block">
             <div class="flex w-full items-center justify-center gap-2 mb-5">
@@ -321,7 +327,7 @@ onMounted(() => {
             </div>
         </div>
     </div>
-<!-- 
+    <!-- 
     <marquee behavior="" direction="" class="bg-slate-900 text-sm text-white font-inter font-normal p-1.5"><span
             class="font-semibold">FindPaw</span> is
         a project by Rafka for portfolio purposes.</marquee>
