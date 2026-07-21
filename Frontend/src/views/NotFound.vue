@@ -1,6 +1,4 @@
 <script setup>
-import Nav from '@/components/Nav.vue';
-import Footer from '@/components/Footer.vue';
 import { onMounted } from 'vue';
 
 onMounted(() => {
@@ -9,8 +7,6 @@ onMounted(() => {
 </script>
 
 <template>
-    <Nav />
-
     <div class="w-full h-screen flex justify-center items-center">
         <div class="max-w-md text-center">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -27,7 +23,7 @@ onMounted(() => {
             </p>
 
             <div class="mt-6 space-y-2">
-                <a href="#"
+                <a href="/"
                     class="block w-full rounded-lg bg-slate-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-700">
                     Back to Home
                 </a>
@@ -39,6 +35,4 @@ onMounted(() => {
             </div>
         </div>
     </div>
-
-    <Footer />
 </template>

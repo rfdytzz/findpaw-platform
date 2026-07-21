@@ -64,7 +64,7 @@ onMounted(() => {
             </div>
             <div class="w-full px-1">
                 <div
-                    class="flex items-center justify-between p-2 rounded-md text-sm bg-green-50 border border-green-200 text-green-700">
+                    class="flex items-center justify-between p-3 rounded-md text-sm bg-green-50 border border-green-200 text-green-700">
                     <div class="flex gap-2 items-center">
                         <i class="bx bx-check-circle text-green-600"></i>
                         <span>Sign up Successfully</span>
@@ -74,7 +74,7 @@ onMounted(() => {
             </div>
             <div class="w-full px-1">
                 <div
-                    class="flex items-center justify-between p-2 rounded-md text-sm bg-red-50 border border-red-200 text-red-700">
+                    class="flex items-center justify-between p-3 rounded-md text-sm bg-red-50 border border-red-200 text-red-700">
                     <div class="flex gap-2 items-center">
                         <i class="bx bx-info-circle text-red-600"></i>
                         <span>Email has been already taken</span>
@@ -86,17 +86,17 @@ onMounted(() => {
                 <div class="flex flex-col w-full gap-2">
                     <label for="name" class="font-medium text-sm">Name <span>*</span></label>
                     <input required type="text" id="name" placeholder="Enter your name"
-                        class="rounded-md text-sm flex-1 focus:outline-0 border border-slate-200 px-3 py-2 focus:border-slate-400 focus:ring-slate-200 focus:ring-3 transition duration-200 ease-in-out">
+                        class="rounded-md text-sm flex-1 focus:outline-0 border border-slate-200 p-3 focus:border-slate-400 focus:ring-slate-200 focus:ring-3 transition duration-200 ease-in-out">
                 </div>
                 <div class="flex flex-col w-full gap-2">
                     <label for="email" class="font-medium text-sm">Email address <span>*</span></label>
                     <input required type="email" id="email" placeholder="Enter your email address"
-                        class="rounded-md text-sm flex-1 focus:outline-0 border border-slate-200 px-3 py-2 focus:border-slate-400 focus:ring-slate-200 focus:ring-3 transition duration-200 ease-in-out">
+                        class="rounded-md text-sm flex-1 focus:outline-0 border border-slate-200 p-3 focus:border-slate-400 focus:ring-slate-200 focus:ring-3 transition duration-200 ease-in-out">
                 </div>
                 <div class="flex flex-col w-full gap-2">
                     <label for="phone_number" class="font-medium text-sm">Phone Number <span>*</span></label>
                     <div
-                        class="rounded-md text-sm gap-2 flex-1 border border-slate-200 px-3 py-2 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
+                        class="rounded-md text-sm gap-2 flex-1 border border-slate-200 p-3 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
                         <span class="text-slate-600">+62</span>
                         <input @input="formatPhone" :value="phone_number" required minlength="8" type="tel"
                             id="phone_number" placeholder="Enter your phone number"
@@ -106,7 +106,7 @@ onMounted(() => {
                 <div class="flex flex-col w-full gap-2">
                     <label for="password" class="font-medium text-sm">Password <span>*</span></label>
                     <div
-                        class="rounded-md text-sm flex-1 border border-slate-200 px-3 py-2 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
+                        class="rounded-md text-sm flex-1 border border-slate-200 p-3 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
                         <input required minlength="8" :type="isShow ? 'text' : 'password'" id="password"
                             placeholder="••••••••••••" class="focus:outline-0 text-sm flex-1">
                         <i :class="isShow ? 'bx-show' : 'bx-hide'" @click="toggleShow"
@@ -116,7 +116,7 @@ onMounted(() => {
                 <div class="flex flex-col w-full gap-2">
                     <label for="confirm_password" class="font-medium text-sm">Confirm Password <span>*</span></label>
                     <div
-                        class="rounded-md text-sm flex-1 border border-slate-200 px-3 py-2 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
+                        class="rounded-md text-sm flex-1 border border-slate-200 p-3 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
                         <input required minlength="8" :type="isShowConfirm ? 'text' : 'password'" id="confirm_password"
                             placeholder="••••••••••••" class="focus:outline-0 text-sm flex-1">
                         <i :class="isShowConfirm ? 'bx-show' : 'bx-hide'" @click="toggleShowConfirm"

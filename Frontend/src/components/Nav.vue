@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute()
 
 const isDrop = ref(false)
 const toggleDrop = () => {
@@ -18,11 +21,11 @@ const toggleSidebar = () => {
         <a href="/" class="font-bold text-xl"><i class='bx bxs-dog'></i> FindPaw</a>
         <div class="hidden md:block">
             <ul class="text-sm font-inter flex items-center gap-5">
-                <router-link to=""
-                    class="bg-gray-100 px-3 ease-in-out p-2 rounded-md ring ring-gray-100 transition-all duration-200">
+                <router-link to="/" :class="route.path === '/' ? 'bg-gray-100 px-3' : ''"
+                    class="hover:bg-gray-100 flex hover:px-3 ease-in-out p-2 rounded-md hover:ring hover:ring-gray-100 transition-all duration-200">
                     Home
                 </router-link>
-                <router-link to=""
+                <router-link to="/" :class="route.path === '/about' ? 'bg-gray-100 px-3' : ''"
                     class="hover:bg-gray-100 flex hover:px-3 ease-in-out p-2 rounded-md hover:ring hover:ring-gray-100 transition-all duration-200">
                     About
                 </router-link>
@@ -31,35 +34,40 @@ const toggleSidebar = () => {
                     <input type="text" class="focus:outline-0 flex-1" name="" id="" placeholder="Search">
                     <i class="bx bx-search"></i>
                 </div>
-                <router-link to=""
+                <router-link to="/search" :class="route.path === '/search' ? 'bg-gray-100 px-3' : ''"
+                    class="hover:bg-gray-100 hover:px-3 ease-in-out p-2 rounded-md hover:ring hover:ring-gray-100 transition-all duration-200">
+                    Explore
+                </router-link>
+                <router-link to="/blog" :class="route.path === '/blog' ? 'bg-gray-100 px-3' : ''"
                     class="hover:bg-gray-100 hover:px-3 ease-in-out p-2 rounded-md hover:ring hover:ring-gray-100 transition-all duration-200">
                     Blog
                 </router-link>
-                <router-link to=""
-                    class="hover:bg-gray-100 hover:px-3 ease-in-out p-2 rounded-md hover:ring hover:ring-gray-100 transition-all duration-200">
-                    Community
-                </router-link>
             </ul>
         </div>
-        <div class="hidden md:block">
-            <div class="flex relative">
-                <img @click="toggleDrop" alt="avatar" src="https://ui-avatars.com/api/?name=Elon+Musk"
-                    class="size-8 rounded-full relative cursor-pointer">
-                <div :class="isDrop ? 'visible translate-y-0 translate-x-0 opacity-100 scale-100' : 'invisible -translate-y-3 translate-x-0.5 opacity-0 scale-95'"
-                    class="absolute bg-white w-40 border border-slate-200 rounded-md top-10 inset-e-0 p-1 transition-all duration-65 ease-in-out">
-                    <div class="flex flex-col font-inter text-sm gap-1">
-                        <router-link to="/profile"
-                            class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Profile<i
-                                class="bx bx-user"></i></router-link>
-                        <router-link to="/profile/settings"
-                            class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Settings<i
-                                class="bx bx-cog"></i></router-link>
-                        <router-link to="/profile/bookmarks"
-                            class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Bookmarks<i
-                                class="bx bx-bookmarks"></i></router-link>
-                        <router-link to=""
-                            class="p-2 flex items-center justify-between hover:bg-red-50 rounded-md transition duration-200 ease-in-out text-red-800 hover:text-red-700">Sign
-                            out<i class="bx bx-log-out"></i></router-link>
+        <div class="flex items-center gap-5">
+            <div class="flex items-center p-2 rounded-full hover:bg-gray-100 transition duration-100 text-xl">
+                <i class="bx bx-conversation"></i>
+            </div>
+            <div class="hidden md:block">
+                <div class="flex relative">
+                    <img @click="toggleDrop" alt="avatar" src="https://ui-avatars.com/api/?name=Elon+Musk"
+                        class="size-8 rounded-full relative cursor-pointer">
+                    <div :class="isDrop ? 'visible translate-y-0 translate-x-0 opacity-100 scale-100' : 'invisible -translate-y-3 translate-x-0.5 opacity-0 scale-95'"
+                        class="absolute bg-white w-40 border border-slate-200 rounded-md top-10 inset-e-0 p-1 transition-all duration-65 ease-in-out">
+                        <div class="flex flex-col font-inter text-sm gap-1">
+                            <router-link to="/profile"
+                                class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Profile<i
+                                    class="bx bx-user"></i></router-link>
+                            <router-link to="/profile/settings"
+                                class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Settings<i
+                                    class="bx bx-cog"></i></router-link>
+                            <router-link to="/profile/bookmarks"
+                                class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Bookmarks<i
+                                    class="bx bx-bookmarks"></i></router-link>
+                            <router-link to="/signup"
+                                class="p-2 flex items-center justify-between hover:bg-red-50 rounded-md transition duration-200 ease-in-out text-red-800 hover:text-red-700">Sign
+                                out<i class="bx bx-log-out"></i></router-link>
+                        </div>
                     </div>
                 </div>
             </div>

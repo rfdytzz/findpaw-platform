@@ -1,63 +1,101 @@
 <script setup>
-import Nav from '@/components/Nav.vue';
-import ProfileSidebar from '@/components/ProfileSidebar.vue';
-import Breadcrumbs from '@/components/Breadcrumbs.vue';
-import { onMounted, ref } from 'vue';
+import Nav from '@/components/Nav.vue'
+import ProfileSidebar from '@/components/ProfileSidebar.vue'
+import Breadcrumbs from '@/components/Breadcrumbs.vue'
+import Button from '@/components/Button.vue'
+import { onMounted, ref } from 'vue'
+
+const isShowCurent = ref(false)
+const toggleShowCurent = () => {
+    isShowCurent.value = !isShowCurent.value
+}
+
+const isShowNew = ref(false)
+const toggleShowNew = () => {
+    isShowNew.value = !isShowNew.value
+}
+
+const isShowConfirm = ref(true)
+const toggleShowConfirn = () => {
+    isShowConfirm.value = !isShowConfirm.value
+}
 
 onMounted(() => {
-    document.title = 'FindPaw - Profile'
+    document.title = 'FindPaw - Change Password'
 })
 </script>
 
 <template>
     <Nav />
-    <div class="grid grid-cols-5 px-10 py-20 gap-10">
-        <ProfileSidebar />
-        <div class="block col-span-4">
-            <div class="flex flex-col">
-                <div class="flex justify-between">
-                    <Breadcrumbs />
+    <ProfileSidebar/>
+
+    <div class="md:ml-65 h-fit relative flex items-start font-inter">
+        <div class="w-full mt-15">
+            <div class="flex items-center justify-between px-6 py-5 border-b border-slate-200">
+                <Breadcrumbs />
+            </div>
+            <div class="max-w-2xl px-6 py-8">
+                <div class="mb-8">
+                    <h1 class="text-2xl font-semibold text-slate-900">
+                        Change Password
+                    </h1>
+                    <p class="mt-1 text-sm text-slate-500">
+                        Update your password to keep your account secure.
+                    </p>
                 </div>
-                <div class="font-medium mt-5">Change Password</div>
-                <form action="" class="mt-5">
-                    <div class="grid grid-cols-3 gap-5">
-                        <div class="col-span-2 text-sm flex gap-5 flex-col">
-                            <label for="name" class="flex flex-col gap-2">
-                                <span class="text-sm font-medium text-gray-700"> Old Password <span
-                                        class="text-teal-600">*</span> </span>
-
-                                <input v-model="name" type="password" id="name" :disabled="isDisable" placeholder="••••••••"
-                                    class="mt-0.5 w-full rounded focus:ring-teal-600 ring focus:outline-0 ring-gray-100 p-2 shadow-sm sm:text-sm" />
+                <div class="rounded-xl border border-slate-200 bg-white">
+                    <div class="border-b border-slate-200 px-6 py-5">
+                        <h2 class="font-semibold text-slate-900">
+                            Password
+                        </h2>
+                        <p class="mt-1 text-sm text-slate-500">
+                            Make sure your new password is strong and difficult to guess.
+                        </p>
+                    </div>
+                    <div class="space-y-6 p-6">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-medium">
+                                Current Password
                             </label>
-                            <label for="name" class="flex flex-col gap-2">
-                                <span class="text-sm font-medium text-gray-700"> New Password <span
-                                        class="text-teal-600">*</span> </span>
-
-                                <input v-model="name" type="password" id="name" :disabled="isDisable" placeholder="••••••••"
-                                    class="mt-0.5 w-full rounded focus:ring-teal-600 ring focus:outline-0 ring-gray-100 p-2 shadow-sm sm:text-sm" />
-                            </label>
-                            <label for="name" class="flex flex-col gap-2">
-                                <span class="text-sm font-medium text-gray-700"> Confirm Password <span
-                                        class="text-teal-600">*</span> </span>
-
-                                <input v-model="name" type="password" id="name" :disabled="isDisable" placeholder="••••••••"
-                                    class="mt-0.5 w-full rounded focus:ring-teal-600 ring focus:outline-0 ring-gray-100 p-2 shadow-sm sm:text-sm" />
-                            </label>
-                            <div class="flex items-center gap-2 text-[12px] font-normal">
-                                <input type="checkbox" name="" id="showPassword">
-                                <label for="showPassword">Show Password</label>
+                            <div
+                                class="rounded-md text-sm flex-1 border border-slate-200 p-3 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
+                                <input required minlength="8" :type="isShowCurent ? 'text' : 'password'" id="password"
+                                    placeholder="••••••••••••" class="focus:outline-0 text-sm flex-1">
+                                <i :class="isShowCurent ? 'bx-show' : 'bx-hide'" @click="toggleShowCurent"
+                                    class="bx text-md cursor-pointer"></i>
                             </div>
-                            <div class="flex items-center justify-start">
-                                <button
-                                    class="inline-block rounded border border-teal-600 bg-teal-600 px-2 py-1 font-medium text-white shadow-sm transition-colors hover:bg-teal-700"
-                                    href="#">
-                                    <i class='bx bx-check'></i>
-                                    Save Changes
-                                </button>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-medium">
+                                New Password
+                            </label>
+                            <div
+                                class="rounded-md text-sm flex-1 border border-slate-200 p-3 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
+                                <input required minlength="8" :type="isShowNew ? 'text' : 'password'" id="password"
+                                    placeholder="••••••••••••" class="focus:outline-0 text-sm flex-1">
+                                <i :class="isShowNew ? 'bx-show' : 'bx-hide'" @click="toggleShowNew"
+                                    class="bx text-md cursor-pointer"></i>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-medium">
+                                Confirm New Password
+                            </label>
+                            <div
+                                class="rounded-md text-sm flex-1 border border-slate-200 p-3 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
+                                <input required minlength="8" :type="isShowConfirm ? 'text' : 'password'" id="password"
+                                    placeholder="••••••••••••" class="focus:outline-0 text-sm flex-1">
+                                <i :class="isShowConfirm ? 'bx-show' : 'bx-hide'" @click="toggleShowConfirn"
+                                    class="bx text-md cursor-pointer"></i>
                             </div>
                         </div>
                     </div>
-                </form>
+                    <div class="flex justify-end gap-3 border-t border-slate-200 px-6 py-5">
+                        <Button class="text-sm">
+                            Update Password
+                        </Button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

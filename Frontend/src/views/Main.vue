@@ -33,7 +33,7 @@ onMounted(() => {
                         Search by category, breed, age, and location.
                     </p>
                     <div v-if="isSearch"
-                        class="mt-10 flex bg-gray-100 rounded-xl focus-within:bg-gray-100 focus-within:border-gray-300 transition duration-200 border border-gray-100 focus:border-gray-200 overflow-hidden max-w-xl">
+                        class="mt-10 flex bg-gray-100 rounded-xl focus-within:bg-gray-100 focus-within:border-gray-300 transition duration-200 border border-gray-100 focus:border-gray-200 overflow-hidden ">
                         <input type="text" placeholder="Search pets..." class="flex-1 px-5 py-4 outline-none" />
                         <button class="bg-slate-900 hover:bg-slate-700 px-8 text-white transition">
                             Search
@@ -67,12 +67,12 @@ onMounted(() => {
                 <div class="relative flex justify-center">
                     <img src="/img/hero.png" alt="Pet" class="w-100 drop-shadow-2xl" />
                 </div>
-
             </div>
-
         </div>
     </div>
 
+    
+    
     <div class="md:p-10 p-5 pb-0">
         <div class="md:hidden block">
             <div class="flex w-full items-center justify-center gap-2 mb-5">

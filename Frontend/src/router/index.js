@@ -12,6 +12,7 @@ import VerifiedAccount from '@/views/user/VerifiedAccount.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import NProgress from "nprogress"
 import "nprogress/nprogress.css"
+import ConnectedAccount from '@/views/user/ConnectedAccount.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,6 +26,7 @@ const router = createRouter({
     { path: '/profile/verified-account', component: VerifiedAccount, meta: {auth:true} },
     { path: '/profile/bookmarks', component: Bookmarks, meta: {auth:true} },
     { path: '/profile/account', component: Account, meta: {auth:true} },
+    { path: '/profile/connected-account', component: ConnectedAccount, meta: {auth:true} },
 
     { path: '/detail', component: Detail },
 
