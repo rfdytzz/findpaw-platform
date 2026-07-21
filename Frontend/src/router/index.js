@@ -17,7 +17,7 @@ import ConnectedAccount from '@/views/user/ConnectedAccount.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/', component: Main },
+    { path: '/', component: Main, meta: {auth:true} },
     { path: '/search', component: Search },
     { path: '/signin', component: Signin, meta: {guest:true} },
     { path: '/signup', component: Signup, meta: {guest:true} },
@@ -39,12 +39,22 @@ NProgress.configure({
 });
 
 router.beforeEach((to, from, next) => {
-    NProgress.start();
-    next();
+    NProgress.start()
+    const token = localStorage.getItem('token')
+
+    if (to.meta.auth && !token) {
+        return next('/signin')
+    }
+
+    if (to.meta.guest && token) {
+        return next('/')
+    }
+
+    next()
 });
 
 router.afterEach(() => {
-    NProgress.done();
+    NProgress.done()
 });
 
 router.onError(() => {

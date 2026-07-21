@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue';
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
@@ -13,6 +14,28 @@ const isSidebar = ref(false)
 const toggleSidebar = () => {
     isSidebar.value = !isSidebar.value
 }
+
+const data = ref('')
+const getData = async () => {
+    try {
+        const token = localStorage.getItem('token')
+        const res = await axios.get('http://localhost:8000/api/user',
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        )
+        data.value = res.data
+        console.log(data.value)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+onMounted(() => {
+    getData()
+})
 </script>
 
 <template>

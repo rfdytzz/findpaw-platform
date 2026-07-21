@@ -321,7 +321,7 @@ onMounted(() => {
             </div>
         </div>
     </div>
-
+<!-- 
     <marquee behavior="" direction="" class="bg-slate-900 text-sm text-white font-inter font-normal p-1.5"><span
             class="font-semibold">FindPaw</span> is
         a project by Rafka for portfolio purposes.</marquee>
@@ -329,7 +329,7 @@ onMounted(() => {
             class="font-normal">&copy; 2026 FindPaw</span></marquee>
     <marquee behavior="" direction="" class="bg-slate-900 text-white font-inter text-sm font-normal p-1.5"><span
             class="font-semibold">FindPaw</span> is
-        a project by Rafka for portfolio purposes.</marquee>
+        a project by Rafka for portfolio purposes.</marquee> -->
 
     <Footer />
 </template>

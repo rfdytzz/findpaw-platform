@@ -1,11 +1,42 @@
 <script setup>
 import Button from '@/components/Button.vue';
 import Loader from '@/components/Loader.vue';
+import axios from 'axios';
 import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
 const isShow = ref(false)
 const toggleShow = () => {
     isShow.value = !isShow.value
+}
+
+const email = ref('')
+const password = ref('')
+const message = ref('')
+const loading = ref(false)
+const getSignin = async () => {
+    try {
+        loading.value = true
+        const res = await axios.post('http://localhost:8000/api/signin',
+            {
+                email: email.value,
+                password: password.value
+            }
+        )
+        localStorage.setItem('token', res.data.token)
+        console.log(res.data)
+        router.push('/')
+    } catch(error) {
+        console.log(error?.response?.data)
+        message.value = error?.response?.data?.message
+    } finally {
+        loading.value = false
+    }
+}
+
+const closeMessage = () => {
+    message.value = ''
 }
 
 onMounted(() => {
@@ -37,7 +68,7 @@ onMounted(() => {
             <div class="flex items-center gap-2 justify-center">
                 <span class="text-sm text-slate-600">OR</span>
             </div>
-            <div class="w-full px-1">
+            <div class="w-full px-1 hidden">
                 <div
                     class="flex items-center justify-between p-3 rounded-md text-sm bg-green-50 border border-green-200 text-green-700">
                     <div class="flex gap-2 items-center">
@@ -47,27 +78,27 @@ onMounted(() => {
                     <i class="bx bx-x cursor-pointer"></i>
                 </div>
             </div>
-            <div class="w-full px-1">
+            <div v-if="message" class="w-full px-1">
                 <div
                     class="flex items-center justify-between p-3 rounded-md text-sm bg-red-50 border border-red-200 text-red-700">
                     <div class="flex gap-2 items-center">
                         <i class="bx bx-info-circle text-red-600"></i>
-                        <span>Incorrect Email or Password, Please try again</span>
+                        <span>{{ message }}</span>
                     </div>
-                    <i class="bx bx-x cursor-pointer"></i>
+                    <i @click="closeMessage" class="bx bx-x cursor-pointer"></i>
                 </div>
             </div>
-            <form class="flex flex-col items-start justify-center px-1 gap-4">
+            <form @submit.prevent="getSignin" class="flex flex-col items-start justify-center px-1 gap-4">
                 <div class="flex flex-col w-full gap-2">
                     <label for="email" class="font-medium text-sm">Email address <span>*</span></label>
-                    <input required type="text" id="email" placeholder="Enter your email address"
+                    <input v-model="email" required type="email" id="email" placeholder="Enter your email address"
                         class="rounded-md text-sm flex-1 focus:outline-0 border border-slate-200 p-3 focus:border-slate-400 focus:ring-slate-200 focus:ring-3 transition duration-200 ease-in-out">
                 </div>
                 <div class="flex flex-col w-full gap-2">
                     <label for="password" class="font-medium text-sm">Password <span>*</span></label>
                     <div
                         class="rounded-md text-sm flex-1 border border-slate-200 p-3 focus-within:border-slate-400 focus-within:ring-slate-200 focus-within:ring-3 transition duration-200 ease-in-out flex items-center">
-                        <input required minlength="8" :type="isShow ? 'text' : 'password'" id="password"
+                        <input v-model="password" required minlength="8" :type="isShow ? 'text' : 'password'" id="password"
                             placeholder="••••••••••••" class="focus:outline-0 text-sm flex-1">
                         <i :class="isShow ? 'bx-show' : 'bx-hide'" @click="toggleShow"
                             class="bx text-md cursor-pointer"></i>
@@ -81,7 +112,7 @@ onMounted(() => {
                     <router-link to="" class="text-sm">Forgot Password?</router-link>
                 </div>
                 <Button variant="sign">
-                    <loader />
+                    <loader v-if="loading" />
                     Sign in
                 </Button>
                 <div class="text-center w-full text-slate-600">New on our platform? <router-link to="/signup    "

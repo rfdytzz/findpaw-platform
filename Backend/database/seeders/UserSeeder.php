@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             'email' => 'rafka@findpaw.com',
             'role' => 'user',
             'phone_number' => '62-857-1234-5678',
-            'password' => 'user123'
+            'password' => 'user1234'
         ]);
     }
 }
