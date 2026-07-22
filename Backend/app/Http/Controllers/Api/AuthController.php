@@ -4,29 +4,25 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function __construct(
+        protected AuthService $authService
+    ) {}
+
     public function signin(Request $request) {
         $credentials = $request->validate([
             'email' => 'required',
             'password' => 'required'
         ]);
 
-        if (!Auth::attempt($credentials)) {
-            return response()->json([
-                'message' => 'Incorrect Email or Password'
-            ], 401);
-        }
+        $data = $this->authService->SignIn($credentials);
 
-        $user = Auth::user();
-        $token = $user->createToken('auth-token')->plainTextToken;
-
-        return response()->json([
-            'token' => $token
-        ]);
+        return $data;
     } 
 
     public function signup(Request $request) {
