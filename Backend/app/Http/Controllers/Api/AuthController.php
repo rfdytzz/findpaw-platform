@@ -45,12 +45,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function signout(Request $requset) {
-        $user = Auth::user();
-        $requset = $user->currentAccessToken()->delete();
-
-        return response()->json([
-            'message' => 'Sign out Success'
-        ]);
+    public function signout() {
+        return $this->authService->signOut();
     }
 }
