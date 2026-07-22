@@ -15,23 +15,24 @@ import "nprogress/nprogress.css"
 import ConnectedAccount from '@/views/user/ConnectedAccount.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    { path: '/', component: Main, meta: {auth:true} },
-    { path: '/search', component: Search },
-    { path: '/signin', component: Signin, meta: {guest:true} },
-    { path: '/signup', component: Signup, meta: {guest:true} },
-    { path: '/profile', component: Profile, meta: {auth:true} },
-    { path: '/profile/change-password', component: ChangePassword, meta: {auth:true} },
-    { path: '/profile/verified-account', component: VerifiedAccount, meta: {auth:true} },
-    { path: '/profile/bookmarks', component: Bookmarks, meta: {auth:true} },
-    { path: '/profile/account', component: Account, meta: {auth:true} },
-    { path: '/profile/connected-account', component: ConnectedAccount, meta: {auth:true} },
+    history: createWebHistory(import.meta.env.BASE_URL),
+    routes: [
+        { path: '/', component: Main, meta: { auth: true } },
+        { path: '/search', component: Search },
+        { path: '/signin', component: Signin, meta: { guest: true } },
+        { path: '/signup', component: Signup, meta: { guest: true } },
 
-    { path: '/detail', component: Detail },
+        { path: '/profile', component: Profile, meta: { auth: true } },
+        { path: '/profile/change-password', component: ChangePassword, meta: { auth: true } },
+        { path: '/profile/verified-account', component: VerifiedAccount, meta: { auth: true } },
+        { path: '/profile/bookmarks', component: Bookmarks, meta: { auth: true } },
+        { path: '/profile/account', component: Account, meta: { auth: true } },
+        { path: '/profile/connected-account', component: ConnectedAccount, meta: { auth: true } },
 
-    { path: '/:pathMatch(.*)*', component: NotFound }
-  ],
+        { path: '/detail', component: Detail },
+
+        // { path: '/:pathMatch(.*)*', component: NotFound }
+    ],
 })
 
 NProgress.configure({

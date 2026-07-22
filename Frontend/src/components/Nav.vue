@@ -15,10 +15,27 @@ const toggleDrop = () => {
 const isSidebar = ref(false)
 const toggleSidebar = () => {
     isSidebar.value = !isSidebar.value
+
+    if (isSidebar.value) {
+        document.body.classList.add('overflow-hidden')
+    } else {
+        document.body.classList.remove('overflow-hidden')
+    }
+}
+
+const isSignout = ref(false)
+const toggleSignout = () => {
+    isSignout.value = !isSignout.value
+
+    if (isSignout.value) {
+        document.body.classList.add('overflow-hidden')
+    } else {
+        document.body.classList.remove('overflow-hidden')
+    }
 }
 
 const { data, loading, getData } = useUser()
-const { getSignout }  = useSignout()
+const { getSignout } = useSignout()
 const avatar = computed(() => data.value?.name)
 
 onMounted(() => {
@@ -71,8 +88,7 @@ onMounted(() => {
                         <router-link to="/profile/bookmarks"
                             class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Bookmarks<i
                                 class="bx bx-bookmarks"></i></router-link>
-                        <button
-                            @click="getSignout" type="submit"
+                        <button type="submit" @click="toggleSignout"
                             class="p-2 flex items-center cursor-pointer justify-between hover:bg-red-50 rounded-md transition duration-200 ease-in-out text-red-800 hover:text-red-700">Sign
                             out<i class="bx bx-log-out"></i></button>
                     </div>
@@ -89,16 +105,16 @@ onMounted(() => {
     </header>
 
     <div @click="toggleSidebar" :class="isSidebar ? 'block' : 'hidden'"
-        class="inset-0 md:hidden block bg-black/60 backdrop-blur fixed z-50"></div>
+        class="inset-0 md:hidden block bg-black/50 fixed z-50"></div>
 
     <div :class="isSidebar ? 'translate-x-0' : 'translate-x-full'"
         class="md:hidden block transition duration-200 ease-in-out fixed top-0 right-0 bg-gray-50 h-screen w-75 z-60">
-        <div class="flex flex-col p-5">
-            <div class="text-xl font-semibold font-inter flex justify-between items-center">
+        <div class="flex h-full flex-col p-5">
+            <div class="text-xl mb-5 font-semibold font-inter flex justify-between items-center">
                 <div class="font-extrabold">FindPaw</div>
                 <i @click="toggleSidebar" class="bx bx-x text-3xl cursor-pointer"></i>
             </div>
-            <div class="mt-10 w-full flex flex-col gap-8 overflow-scroll">
+            <div class="pt-5 w-full flex flex-col gap-8 overflow-y-auto">
                 <div class="flex items-center gap-5">
                     <img class="rounded-full" src="https://ui-avatars.com/api/?name=Elon+Musk">
                     <div class="flex flex-col">
@@ -127,6 +143,37 @@ onMounted(() => {
                         Service</router-link>
                     <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Report</router-link>
                 </div>
+                <div class="flex flex-col gap-2">
+                    <div class="font-semibold text-sm text-gray-600">Services</div>
+                    <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">FAQs</router-link>
+                    <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Customer
+                        Service</router-link>
+                    <router-link to="" class="p-2 hover:bg-gray-100 text-gray-600 rounded-md">Report</router-link>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div v-if="isSignout" class="fixed transition duration-200 inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+        <div class="w-full max-w-md rounded-xl border border-slate-200 bg-white">
+            <div class="px-6 py-5">
+                <h2 class="text-lg font-semibold text-slate-900">
+                    Sign out
+                </h2>
+                <p class="mt-2 text-sm leading-6 text-slate-500">
+                    Are you sure you want to sign out? You will need to sign in again
+                    to access your FindPaw account.
+                </p>
+            </div>
+            <div class="flex justify-end gap-3 border-t border-slate-200 px-6 py-4">
+                <button @click="toggleSignout"
+                    class="rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100">
+                    Cancel
+                </button>
+                <button @click="getSignout"
+                    class="rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800">
+                    Sign Out
+                </button>
             </div>
         </div>
     </div>

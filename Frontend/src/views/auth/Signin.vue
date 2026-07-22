@@ -115,7 +115,7 @@ onMounted(() => {
                     <loader v-if="loading" />
                     Sign in
                 </Button>
-                <div class="text-center w-full text-slate-600">New on our platform? <router-link to="/signup    "
+                <div class="text-center w-full text-slate-600">New on our platform? <router-link to="/signup"
                         class="text-black">Create an account</router-link></div>
             </form>
         </div>
