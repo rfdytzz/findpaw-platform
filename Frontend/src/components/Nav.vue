@@ -5,6 +5,8 @@ import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
+document.body.classList.remove('overflow-hidden')
+
 const route = useRoute()
 
 const isDrop = ref(false)
@@ -66,7 +68,7 @@ onMounted(() => {
                     class="hover:bg-gray-100 hover:px-3 ease-in-out p-2 rounded-md hover:ring hover:ring-gray-100 transition-all duration-200">
                     Explore
                 </router-link>
-                <router-link to="/blog" :class="route.path === '/blog' ? 'bg-gray-100 px-3' : ''"
+                <router-link to="#" :class="route.path === '/blog' ? 'bg-gray-100 px-3' : ''"
                     class="hover:bg-gray-100 hover:px-3 ease-in-out p-2 rounded-md hover:ring hover:ring-gray-100 transition-all duration-200">
                     Blog
                 </router-link>
@@ -82,7 +84,7 @@ onMounted(() => {
                         <router-link to="/profile"
                             class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Profile<i
                                 class="bx bx-user"></i></router-link>
-                        <router-link to="/profile/settings"
+                        <router-link to="#"
                             class="p-2 flex text-gray-600 hover:text-gray-900 items-center justify-between hover:bg-gray-100 rounded-md transition duration-200 ease-in-out">Settings<i
                                 class="bx bx-cog"></i></router-link>
                         <router-link to="/profile/bookmarks"

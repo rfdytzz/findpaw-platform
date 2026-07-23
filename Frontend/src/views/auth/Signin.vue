@@ -1,10 +1,8 @@
 <script setup>
 import Button from '@/components/Button.vue';
 import Loader from '@/components/Loader.vue';
-import axios from 'axios';
+import { useSignin } from '@/composables/useSignin';
 import { onMounted, ref } from 'vue';
-import { useRouter } from 'vue-router';
-const router = useRouter();
 
 const isShow = ref(false)
 const toggleShow = () => {
@@ -13,28 +11,11 @@ const toggleShow = () => {
 
 const email = ref('')
 const password = ref('')
-const message = ref('')
-const loading = ref(false)
-const getSignin = async () => {
-    try {
-        loading.value = true
-        const res = await axios.post('http://localhost:8000/api/signin',
-            {
-                email: email.value,
-                password: password.value
-            }
-        )
-        localStorage.setItem('token', res.data.token)
-        console.log(res.data)
-        router.push('/')
-    } catch(error) {
-        console.log(error?.response?.data)
-        message.value = error?.response?.data?.message
-    } finally {
-        loading.value = false
-    }
-}
 
+const { getSignin, message, loading } = useSignin()
+const handleSubmit = () => {
+    getSignin(email.value, password.value)
+}
 const closeMessage = () => {
     message.value = ''
 }
@@ -88,7 +69,7 @@ onMounted(() => {
                     <i @click="closeMessage" class="bx bx-x cursor-pointer"></i>
                 </div>
             </div>
-            <form @submit.prevent="getSignin" class="flex flex-col items-start justify-center px-1 gap-4">
+            <form @submit.prevent="handleSubmit" class="flex flex-col items-start justify-center px-1 gap-4">
                 <div class="flex flex-col w-full gap-2">
                     <label for="email" class="font-medium text-sm">Email address <span>*</span></label>
                     <input v-model="email" required type="email" id="email" placeholder="Enter your email address"
@@ -109,10 +90,10 @@ onMounted(() => {
                         <input type="checkbox" id="remember" class="accent-slate-900">
                         <label for="remember" class="text-sm text-slate-600">Remember Me</label>
                     </div>
-                    <router-link to="" class="text-sm">Forgot Password?</router-link>
+                    <router-link to="#" class="text-sm">Forgot Password?</router-link>
                 </div>
-                <Button variant="sign">
-                    <loader v-if="loading" />
+                <Button variant="sign" :disabled="loading">
+                    <Loader v-if="loading" />
                     Sign in
                 </Button>
                 <div class="text-center w-full text-slate-600">New on our platform? <router-link to="/signup"

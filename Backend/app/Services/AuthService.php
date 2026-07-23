@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class AuthService {
@@ -21,12 +22,20 @@ class AuthService {
         ], 200);
     }
 
+    public function signUp(array $data) {
+        User::create($data);
+
+        return response()->json([
+            'status' => 'success',
+        ], 200);
+    }
+
     public function signOut() {
         $user = Auth::user();
         $user->currentAccessToken()->delete();
 
         return response()->json([
             'status' => 'success'
-        ]);
+        ], 200);
     }
 }

@@ -39,19 +39,17 @@ NProgress.configure({
     showSpinner: false,
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from) => {
     NProgress.start()
     const token = localStorage.getItem('token')
 
     if (to.meta.auth && !token) {
-        return next('/signin')
+        return '/signin'
     }
 
     if (to.meta.guest && token) {
-        return next('/')
+        return '/'
     }
-
-    next()
 });
 
 router.afterEach(() => {

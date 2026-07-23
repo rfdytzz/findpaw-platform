@@ -6,8 +6,8 @@ const loading = ref(false)
 const error = ref(null)
 
 export function useUser() {
-    const getData = async () => {
-        if (data.value) return
+    const getData = async (force = false) => {
+        if (data.value && !force) return
 
         loading.value = true
         error.value = null
@@ -28,10 +28,15 @@ export function useUser() {
         }
     }
 
+    const clearUser = () => {
+        data.value = null
+    }
+
     return {
         data,
         loading,
         error,
-        getData
+        getData,
+        clearUser
     }
 }

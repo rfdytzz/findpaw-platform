@@ -1,8 +1,10 @@
 import axios from "axios"
 import { useRouter } from "vue-router"
+import { useUser } from "./useUser"
 
 export function useSignout() {
     const router = useRouter()
+    const { clearUser } = useUser()
     const getSignout = async () => {
         const token = localStorage.getItem('token')
         try {
@@ -14,6 +16,7 @@ export function useSignout() {
                     }
                 }
             )
+            clearUser()
         } catch (error) {
             console.log(error)
         } finally {

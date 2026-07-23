@@ -30,19 +30,20 @@ class AuthController extends Controller
             'name' => 'required',
             'email' => 'required',
             'phone_number' => 'required',
-            'password' => 'required|confirmed',
+            'password' => 'required'
         ]);
 
-        User::create([
+        $data = [
             'name' => $request->name,
             'email' => $request->email,
             'phone_number' => $request->phone_number,
-            'password' => $request->password
-        ]);
+            'password' => $request->password,
+            'role' => 'user'
+        ];
 
-        return response()->json([
-            'message' => 'create account successful'
-        ]);
+        $result = $this->authService->signUp($data);
+
+        return $result;
     }
 
     public function signout() {
