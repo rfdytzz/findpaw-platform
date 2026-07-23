@@ -15,10 +15,12 @@ class AuthService {
 
         $user = Auth::user();
         $token = $user->createToken('auth-token')->plainTextToken;
+        $role = $user->role;
 
         return response()->json([
             'status' => 'success',
-            'token' => $token
+            'token' => $token,
+            'role' => $role
         ], 200);
     }
 

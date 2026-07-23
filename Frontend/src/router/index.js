@@ -13,6 +13,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import NProgress from "nprogress"
 import "nprogress/nprogress.css"
 import ConnectedAccount from '@/views/user/ConnectedAccount.vue'
+import Dashboard from '@/views/admin/Dashboard.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,8 @@ const router = createRouter({
         { path: '/search', component: Search },
         { path: '/signin', component: Signin, meta: { guest: true } },
         { path: '/signup', component: Signup, meta: { guest: true } },
+
+        { path: '/admin', component: Dashboard, meta: { auth: true, role: 'admin' } },
 
         { path: '/profile', component: Profile, meta: { auth: true } },
         { path: '/profile/change-password', component: ChangePassword, meta: { auth: true } },
@@ -42,6 +45,7 @@ NProgress.configure({
 router.beforeEach((to, from) => {
     NProgress.start()
     const token = localStorage.getItem('token')
+    const role = localStorage.getItem('role')
 
     if (to.meta.auth && !token) {
         return '/signin'
@@ -49,6 +53,13 @@ router.beforeEach((to, from) => {
 
     if (to.meta.guest && token) {
         return '/'
+    }
+
+    if (to.meta.role === 'admin') {
+        if (role !== 'admin') {
+            return '/'
+        }
+        return true
     }
 });
 

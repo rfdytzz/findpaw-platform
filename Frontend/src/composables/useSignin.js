@@ -17,6 +17,7 @@ export function useSignin() {
                 }
             )
             localStorage.setItem('token', res.data.token)
+            localStorage.setItem('role', res.data.role)
             router.push('/')
         } catch(error) {
             console.log(error?.response?.data?.message)
