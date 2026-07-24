@@ -1,11 +1,11 @@
 <script setup>
-import Nav from '@/components/Nav.vue';
-import Footer from '@/components/Footer.vue';
-import ProductCards from '@/components/ProductCards.vue';
+import AppNavbar from '@/components/layout/AppNavbar.vue'
+import AppFooter from '@/components/layout/AppFooter.vue';
+import ProductCards from '@/components/product/ProductCards.vue';
 </script>
 
 <template>
-    <Nav />
+    <AppNavbar />
 
     <div class="max-w-7xl mx-auto mt-20 px-5">
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
@@ -87,6 +87,6 @@ import ProductCards from '@/components/ProductCards.vue';
     </div>
 
 
-    <Footer />
+    <AppFooter />
 
 </template>

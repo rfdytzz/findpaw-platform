@@ -1,8 +1,8 @@
 <script setup>
-import Nav from '@/components/Nav.vue'
-import ProfileSidebar from '@/components/ProfileSidebar.vue'
-import Breadcrumbs from '@/components/Breadcrumbs.vue'
-import Button from '@/components/Button.vue'
+import AppNavbar from '@/components/layout/AppNavbar.vue'
+import ProfileSidebar from '@/components/layout/ProfileSidebar.vue'
+import Breadcrumbs from '@/components/ui/Breadcrumbs.vue'
+import Button from '@/components/ui/Button.vue'
 import { onMounted, ref } from 'vue'
 
 const googleConnected = ref(true)
@@ -14,7 +14,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <Nav />
+    <AppNavbar />
     <ProfileSidebar />
 
     <div class="md:ml-65 relative flex items-start font-inter">

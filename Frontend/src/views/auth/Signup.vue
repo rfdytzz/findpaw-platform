@@ -1,6 +1,6 @@
 <script setup>
-import Button from '@/components/Button.vue';
-import Loader from '@/components/Loader.vue';
+import Button from '@/components/ui/Button.vue';
+import Loader from '@/components/ui/Loader.vue';
 import { onMounted, ref } from 'vue';
 
 const isShow = ref(false)

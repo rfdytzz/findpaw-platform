@@ -1,5 +1,5 @@
 <script setup>
-import Nav from '@/components/Nav.vue';
+import AppNavbar from '@/components/layout/AppNavbar.vue';
 import { onMounted, ref } from 'vue';
 
 const isPhoto = ref(true)
@@ -13,7 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <Nav />
+    <AppNavbar />
 
     <div class="grid md:px-10 px-5 mt-15 relative pb-10 pt-10 gap-5 grid-cols-1 md:grid-cols-3">
         <div class="flex flex-col gap-5">

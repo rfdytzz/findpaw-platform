@@ -1,16 +1,15 @@
 <script setup>
-import Nav from '@/components/Nav.vue';
-import ProfileSidebar from '@/components/ProfileSidebar.vue';
-import Breadcrumbs from '@/components/Breadcrumbs.vue';
+import AppNavbar from '@/components/layout/AppNavbar.vue'
+import ProfileSidebar from '@/components/layout/ProfileSidebar.vue'
+import Breadcrumbs from '@/components/ui/Breadcrumbs.vue'
 import { onMounted, ref } from 'vue';
-import Button from '@/components/Button.vue';
 onMounted(() => {
     document.title = 'FindPaw - Change Password'
 })
 </script>
 
 <template>
-    <Nav />
+    <AppNavbar />
     <ProfileSidebar />
     <div class="ml-65 h-fit relative flex items-start font-inter">
         <div class="w-full h-screen mt-15">

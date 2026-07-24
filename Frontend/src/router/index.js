@@ -1,6 +1,6 @@
 import Signin from '@/views/auth/Signin.vue'
 import Signup from '@/views/auth/Signup.vue'
-import Main from '@/views/Main.vue'
+import Home from '@/views/Home.vue'
 import NotFound from '@/views/NotFound.vue'
 import Detail from '@/views/product/Detail.vue'
 import Search from '@/views/Search.vue'
@@ -18,12 +18,12 @@ import Dashboard from '@/views/admin/Dashboard.vue'
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
-        { path: '/', component: Main, meta: { auth: true } },
-        { path: '/search', component: Search },
+        { path: '/', component: Home, meta: { auth: true } },
         { path: '/signin', component: Signin, meta: { guest: true } },
         { path: '/signup', component: Signup, meta: { guest: true } },
 
-        { path: '/admin', component: Dashboard, meta: { auth: true, role: 'admin' } },
+        // { path: '/admin', component: Dashboard, meta: { auth: true, role: 'admin' } },
+        { path: '/admin', component: Dashboard },
 
         { path: '/profile', component: Profile, meta: { auth: true } },
         { path: '/profile/change-password', component: ChangePassword, meta: { auth: true } },
@@ -32,9 +32,10 @@ const router = createRouter({
         { path: '/profile/account', component: Account, meta: { auth: true } },
         { path: '/profile/connected-account', component: ConnectedAccount, meta: { auth: true } },
 
+        { path: '/search', component: Search },
         { path: '/detail', component: Detail },
 
-        // { path: '/:pathMatch(.*)*', component: NotFound }
+        { path: '/:pathMatch(.*)*', component: NotFound }
     ],
 })
 

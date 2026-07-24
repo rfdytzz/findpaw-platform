@@ -1,8 +1,9 @@
 <script setup>
-import Nav from '@/components/Nav.vue';
-import Footer from '@/components/Footer.vue';
+import AppNavbar from '@/components/layout/AppNavbar.vue';
+import AppFooter from '@/components/layout/AppFooter.vue';
+import Button from '@/components/ui/Button.vue';
+
 import { onMounted, ref } from 'vue';
-import Button from '@/components/Button.vue';
 
 const isSearch = ref(true)
 const toggleSearch = () => {
@@ -15,7 +16,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <Nav />
+    <AppNavbar />
 
     <div class="w-full min-h-screen font-inter bg-linear-to-t mt-8 from-white to-slate-50">
         <div class="max-w-7xl mx-auto px-6">
@@ -327,15 +328,6 @@ onMounted(() => {
             </div>
         </div>
     </div>
-    <!-- 
-    <marquee behavior="" direction="" class="bg-slate-900 text-sm text-white font-inter font-normal p-1.5"><span
-            class="font-semibold">FindPaw</span> is
-        a project by Rafka for portfolio purposes.</marquee>
-    <marquee behavior="" direction="" class="bg-white text-slate-900 font-inter text-sm font-semibold p-1.5"><span
-            class="font-normal">&copy; 2026 FindPaw</span></marquee>
-    <marquee behavior="" direction="" class="bg-slate-900 text-white font-inter text-sm font-normal p-1.5"><span
-            class="font-semibold">FindPaw</span> is
-        a project by Rafka for portfolio purposes.</marquee> -->
 
-    <Footer />
+    <AppFooter />
 </template>

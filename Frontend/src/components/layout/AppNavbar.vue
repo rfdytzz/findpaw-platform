@@ -1,9 +1,9 @@
 <script setup>
 import { useSignout } from '@/composables/useSignout';
 import { useUser } from '@/composables/useUser';
-import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import Loader from '../ui/Loader.vue';
 
 document.body.classList.remove('overflow-hidden')
 
@@ -37,7 +37,7 @@ const toggleSignout = () => {
 }
 
 const { data, loading, getData } = useUser()
-const { getSignout } = useSignout()
+const { getSignout, signoutLoading } = useSignout()
 const avatar = computed(() => data.value?.name)
 
 onMounted(() => {
@@ -173,7 +173,8 @@ onMounted(() => {
                     Cancel
                 </button>
                 <button @click="getSignout"
-                    class="rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800">
+                    class="rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800 flex items-center gap-2">
+                    <loader v-if="signoutLoading" />
                     Sign Out
                 </button>
             </div>
