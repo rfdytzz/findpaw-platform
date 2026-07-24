@@ -1,6 +1,16 @@
 <script setup>
 import AdminSidebar from '@/components/layout/AdminSidebar.vue';
 import Button from '@/components/ui/Button.vue';
+import { useGetUsers } from '@/composables/useGetUsers';
+import { onMounted, ref } from 'vue';
+
+const { data, getUsers } = useGetUsers()
+
+const search = ref('')
+
+onMounted(() => {
+    getUsers()
+})
 </script>
 
 <template>
@@ -37,14 +47,14 @@ import Button from '@/components/ui/Button.vue';
                 <div
                     class="flex h-10 w-full max-w-sm items-center rounded-md border border-slate-200 bg-white px-3 transition-colors focus-within:border-slate-400 focus-within:ring-2 focus-within:ring-slate-200">
                     <i class="bx bx-search mr-2 text-lg text-slate-400"></i>
-                    <input type="text" placeholder="Search..."
+                    <input type="text" placeholder="Search..." v-model="search"
                         class="flex-1 bg-transparent text-sm placeholder:text-slate-400 focus:outline-none" />
                 </div>
                 <select
                     class="h-10 rounded-md border border-slate-200 bg-white px-3 text-sm text-slate-700 transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-200 focus:outline-none">
-                    <option value="">All Status</option>
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
+                    <option value="">All Role</option>
+                    <option value="active">Admin</option>
+                    <option value="inactive">User</option>
                 </select>
                 <select
                     class="h-10 rounded-md border border-slate-200 bg-white px-3 text-sm text-slate-700 transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-200 focus:outline-none">
@@ -76,6 +86,10 @@ import Button from '@/components/ui/Button.vue';
                                 </th>
                                 <th
                                     class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                    Role
+                                </th>
+                                <th
+                                    class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
                                     Status
                                 </th>
                                 <th
@@ -84,30 +98,33 @@ import Button from '@/components/ui/Button.vue';
                                 </th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-200">
+                        <tbody v-for="(item, index) in data.filter(i => i.name.toLowerCase().includes(search.toLowerCase()) || i.email.toLowerCase().includes(search.toLowerCase()) || i.phone_number.toLowerCase().includes(search.toLowerCase()) )" :key="index" class="divide-y divide-slate-200">
                             <tr class="transition-colors hover:bg-slate-50">
                                 <td class="px-6 py-4 text-sm text-slate-900">
-                                    1
+                                    {{ item.id }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-3">
-                                        <img src="https://ui-avatars.com/api/?name=Rafka+Dyta"
-                                            class="h-10 w-10 rounded-full" alt="Avatar">
+                                        <img :src="`https://ui-avatars.com/api/?name=${item.name}`"
+                                            class="h-7 w-7 rounded-full" alt="Avatar">
                                         <div>
                                             <div class="font-medium text-sm text-slate-900">
-                                                Rafka Dyta
-                                            </div>
-                                            <div class="text-sm text-slate-500">
-                                                @rafka
+                                                {{ item.name }}
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-sm text-slate-600">
-                                    rafka@findpaw.com
+                                    {{ item.email }}
                                 </td>
                                 <td class="px-6 py-4 text-sm text-slate-600">
-                                    +62 857-1234-6789
+                                    {{ item.phone_number }}
+                                </td>
+                                <td class="px-6 py-4 text-sm">
+                                    <span :class="item.role === 'admin' ? 'text-blue-700 bg-blue-100' : 'text-yellow-700 bg-yellow-100'"
+                                        class="rounded-full capitalize px-3 py-1 text-xs font-medium ">
+                                        {{ item.role }}
+                                    </span>
                                 </td>
                                 <td class="px-6 py-4 text-sm">
                                     <span
