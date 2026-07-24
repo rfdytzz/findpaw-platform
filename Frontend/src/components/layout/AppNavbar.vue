@@ -98,11 +98,7 @@ onMounted(() => {
             </div>
         </div>
         <div class="block md:hidden">
-            <button aria-label="Open navigation menu" @click="toggleSidebar" class="flex flex-col gap-2 cursor-pointer">
-                <span class="w-7 h-0.5 bg-slate-700"></span>
-                <span class="w-7 h-0.5 bg-slate-700"></span>
-                <span class="w-7 h-0.5 bg-slate-700"></span>
-            </button>
+            <i @click="toggleSidebar"  class="bx bx-menu text-4xl cursor-pointer"></i>
         </div>
     </header>
 

@@ -23,5 +23,7 @@ import AdminSidebar from '@/components/layout/AdminSidebar.vue';
             </div>
         </div>
     </div>
-    <div class="ml-64 p-5 bg-slate-50 h-screen"></div>
+    <div class="ml-64 p-5 bg-slate-50 h-screen">
+        <div class="text-xl font-semibold">Dashboard</div>
+    </div>
 </template>

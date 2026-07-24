@@ -12,11 +12,6 @@ onMounted(() => {
         <div class="flex flex-col items-start justify-center p-2">
             <a href="/" class="text-xl font-semibold flex items-center gap-2"><i class="bx bxs-dog"></i>FindPaw</a>
         </div>
-        <div class="flex flex-col items-start justify-center gap-5 px-2 mt-5">
-            <div class="flex flex-col items-start justify-center gap-2 w-full">
-                <div class="text-[12px] text-gray-500">MENU</div>
-                <AdminMenu />
-            </div>
-        </div>
+        <AdminMenu />
     </div>
 </template>

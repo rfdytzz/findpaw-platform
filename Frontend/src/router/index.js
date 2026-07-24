@@ -14,6 +14,7 @@ import NProgress from "nprogress"
 import "nprogress/nprogress.css"
 import ConnectedAccount from '@/views/user/ConnectedAccount.vue'
 import Dashboard from '@/views/admin/Dashboard.vue'
+import AllUser from '@/views/admin/AllUser.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,6 +25,7 @@ const router = createRouter({
 
         // { path: '/admin', component: Dashboard, meta: { auth: true, role: 'admin' } },
         { path: '/admin', component: Dashboard },
+        { path: '/admin/user', component: AllUser },
 
         { path: '/profile', component: Profile, meta: { auth: true } },
         { path: '/profile/change-password', component: ChangePassword, meta: { auth: true } },

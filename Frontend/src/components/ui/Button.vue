@@ -9,7 +9,7 @@ defineProps({
 
 <template>
     <button :class="[
-        'h-10 px-4 rounded-lg transition cursor-pointer flex items-center gap-2',
+        'p-2 rounded-lg transition cursor-pointer flex items-center justify-center gap-2',
         variant === 'default' && 'bg-slate-900 text-white hover:bg-slate-700',
         variant === 'light' && 'bg-slate-100 text-slate-900 hover:bg-slate-200',
         variant === 'outline' && 'border border-slate-300 hover:bg-slate-100',
